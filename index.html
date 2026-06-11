@@ -69,6 +69,9 @@
   .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
   .photo{aspect-ratio:1/1;background:linear-gradient(135deg,#17171b,#0b0b0d);border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#3a3a42;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;transition:.2s}
   .photo:hover{border-color:var(--accent2)}
+  .photo-link{display:block;aspect-ratio:1/1;overflow:hidden;border-radius:10px;border:1px solid var(--line);transition:.2s}
+  .photo-link:hover{border-color:var(--accent2);transform:scale(1.02)}
+  .photo-link img{width:100%;height:100%;object-fit:cover}
 
   /* ---------- SETS / VIDEOS ---------- */
   .video-wrap{aspect-ratio:16/9;background:#0b0b0d}
@@ -186,8 +189,8 @@
     <div class="grid cols3">
       <div class="card"><div class="ph">Foto del evento</div><div class="body"><h4>PORTAL #004</h4><p class="muted">700 personas · Montevideo</p></div></div>
       <div class="card"><div class="ph">Foto del evento</div><div class="body"><h4>PORTAL #003</h4><p class="muted">Montevideo</p></div></div>
-      <div class="card"><div class="ph">Foto del evento</div><div class="body"><h4>PORTAL #002</h4><p class="muted">Montevideo</p></div></div>
-      <div class="card"><div class="ph">Foto del evento</div><div class="body"><h4>PORTAL #001</h4><p class="muted">Montevideo</p></div></div>
+      <div class="card"><a href="#" onclick="showTab('photos');return false"><img src="https://drive.google.com/thumbnail?id=18O0KSmDvZ5BHMqmleqNBZYcPCR-LnKXI&sz=w600" alt="PORTAL #002 en Emile Club" loading="lazy" style="aspect-ratio:16/10;object-fit:cover;width:100%"></a><div class="body"><h4>PORTAL #002</h4><p class="muted">Emile Club · 27 de junio de 2025</p></div></div>
+      <div class="card"><a href="#" onclick="showTab('photos');return false"><img src="https://drive.google.com/thumbnail?id=1TN8ZQEXSLP-T3JvJ3dCg-L-e7V6kDV4K&sz=w600" alt="PORTAL #001 en Emile Club" loading="lazy" style="aspect-ratio:16/10;object-fit:cover;width:100%"></a><div class="body"><h4>PORTAL #001</h4><p class="muted">Emile Club · 11 de abril de 2025</p></div></div>
     </div>
   </section>
 
@@ -195,13 +198,97 @@
   <section class="tab-panel" id="panel-photos">
     <h2 class="sec">Photos</h2>
     <div class="accent-bar"></div>
-    <p class="sec-sub">Galería de nuestras fiestas y streams. <span style="color:#5a5a64">(Reemplazar cada cuadro por &lt;img src="..."&gt; con las fotos reales.)</span></p>
+
+    <h2 class="sec" style="font-size:1.05rem">PORTAL #002 — Emile Club · 27 de junio de 2025</h2>
+    <div class="accent-bar"></div>
     <div class="photo-grid">
-      <div class="photo">Foto 01</div><div class="photo">Foto 02</div><div class="photo">Foto 03</div>
-      <div class="photo">Foto 04</div><div class="photo">Foto 05</div><div class="photo">Foto 06</div>
-      <div class="photo">Foto 07</div><div class="photo">Foto 08</div><div class="photo">Foto 09</div>
-      <div class="photo">Foto 10</div><div class="photo">Foto 11</div><div class="photo">Foto 12</div>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/18O0KSmDvZ5BHMqmleqNBZYcPCR-LnKXI=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=18O0KSmDvZ5BHMqmleqNBZYcPCR-LnKXI&sz=w600" alt="PORTAL 002 en Emile Club — foto 1" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1X6jEJ78bS5z4IYsDpjZ0v6098_FWjV0o=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1X6jEJ78bS5z4IYsDpjZ0v6098_FWjV0o&sz=w600" alt="PORTAL 002 en Emile Club — foto 2" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1aFakpujgZn3wM7YEmapFAuzI-_9gDj8d=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1aFakpujgZn3wM7YEmapFAuzI-_9gDj8d&sz=w600" alt="PORTAL 002 en Emile Club — foto 3" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1V3LKHpBOPsapedREZlohGAnX-syT8Pnp=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1V3LKHpBOPsapedREZlohGAnX-syT8Pnp&sz=w600" alt="PORTAL 002 en Emile Club — foto 4" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1ojsOmj0_vQkuRCa8sU-8ltH_64AlIB-l=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1ojsOmj0_vQkuRCa8sU-8ltH_64AlIB-l&sz=w600" alt="PORTAL 002 en Emile Club — foto 5" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1qGDPTvHH4ss3JrjJhxrYlKSGSOsXCQI0=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1qGDPTvHH4ss3JrjJhxrYlKSGSOsXCQI0&sz=w600" alt="PORTAL 002 en Emile Club — foto 6" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1e522tZaRFfAChJ4Mjsa-3uqTkWMAgIlj=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1e522tZaRFfAChJ4Mjsa-3uqTkWMAgIlj&sz=w600" alt="PORTAL 002 en Emile Club — foto 7" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1AYgANSJOJI6tMScG7m5ERIYjNwWM4Q8r=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1AYgANSJOJI6tMScG7m5ERIYjNwWM4Q8r&sz=w600" alt="PORTAL 002 en Emile Club — foto 8" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1Y14pKBqwLkeUCpdBdlXGv5PYLvFLdbce=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1Y14pKBqwLkeUCpdBdlXGv5PYLvFLdbce&sz=w600" alt="PORTAL 002 en Emile Club — foto 9" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1Z-UqWAadLjRVpe78v2dUBKOofeWU8oyn=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1Z-UqWAadLjRVpe78v2dUBKOofeWU8oyn&sz=w600" alt="PORTAL 002 en Emile Club — foto 10" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1Hl8lbBhR1T4irdqlvoe7gHYPBLdxCOJC=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1Hl8lbBhR1T4irdqlvoe7gHYPBLdxCOJC&sz=w600" alt="PORTAL 002 en Emile Club — foto 11" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1MLQyiWRYKAVO7jrTz1hyW6n_ux2jo53A=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1MLQyiWRYKAVO7jrTz1hyW6n_ux2jo53A&sz=w600" alt="PORTAL 002 en Emile Club — foto 12" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1bI-s2EuGXj4p7xNCzMYs0DrIn9OQziBG=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1bI-s2EuGXj4p7xNCzMYs0DrIn9OQziBG&sz=w600" alt="PORTAL 002 en Emile Club — foto 13" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1ppcteZHJsdWA4Q4Sy9P-MWNwcz7R-Mmw=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1ppcteZHJsdWA4Q4Sy9P-MWNwcz7R-Mmw&sz=w600" alt="PORTAL 002 en Emile Club — foto 14" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1OBIITCUcOZSXOmjyk8KSXeJ3bbbJKqmU=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1OBIITCUcOZSXOmjyk8KSXeJ3bbbJKqmU&sz=w600" alt="PORTAL 002 en Emile Club — foto 15" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1BwSV9EjQikzb8TdTDb1A273PBXLvfkvj=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1BwSV9EjQikzb8TdTDb1A273PBXLvfkvj&sz=w600" alt="PORTAL 002 en Emile Club — foto 16" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/18rnsApgbjQwgXJrZh5Dy79zLdX6DpqQg=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=18rnsApgbjQwgXJrZh5Dy79zLdX6DpqQg&sz=w600" alt="PORTAL 002 en Emile Club — foto 17" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1rk7nTEJyArNBLMmmufbrSdb4THws2MYP=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1rk7nTEJyArNBLMmmufbrSdb4THws2MYP&sz=w600" alt="PORTAL 002 en Emile Club — foto 18" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1GNXjD4Zzcd_eRKH_hB5FlYzMKNGsLVFk=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1GNXjD4Zzcd_eRKH_hB5FlYzMKNGsLVFk&sz=w600" alt="PORTAL 002 en Emile Club — foto 19" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1Cy5d1ZPCDME11GqJhY4tzJba-bpa6574=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1Cy5d1ZPCDME11GqJhY4tzJba-bpa6574&sz=w600" alt="PORTAL 002 en Emile Club — foto 20" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1RuHYKylQu_sDP-TEG1rBAMVnJHI-XH48=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1RuHYKylQu_sDP-TEG1rBAMVnJHI-XH48&sz=w600" alt="PORTAL 002 en Emile Club — foto 21" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1lAcA2i0rZ7GO2gild3Z9K2pUZ37xBT3b=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1lAcA2i0rZ7GO2gild3Z9K2pUZ37xBT3b&sz=w600" alt="PORTAL 002 en Emile Club — foto 22" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1DYGSyfhujxTidptIofqYrJXU3j0RlOLb=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1DYGSyfhujxTidptIofqYrJXU3j0RlOLb&sz=w600" alt="PORTAL 002 en Emile Club — foto 23" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1ginK-iL8_20GU9ZtZxTwSXRtJ4mSLOiA=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1ginK-iL8_20GU9ZtZxTwSXRtJ4mSLOiA&sz=w600" alt="PORTAL 002 en Emile Club — foto 24" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1b4iOciZTzHLtO3CVpUuL5KJSQDCKWlk8=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1b4iOciZTzHLtO3CVpUuL5KJSQDCKWlk8&sz=w600" alt="PORTAL 002 en Emile Club — foto 25" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1bcqGnyxWIAMaN36wvNJRG1WjhpbqVfMZ=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1bcqGnyxWIAMaN36wvNJRG1WjhpbqVfMZ&sz=w600" alt="PORTAL 002 en Emile Club — foto 26" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1hKaH-qhH5UMVlkhtBbY_4xh0wK_SgFgi=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1hKaH-qhH5UMVlkhtBbY_4xh0wK_SgFgi&sz=w600" alt="PORTAL 002 en Emile Club — foto 27" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/18Oyw0ng_phIf_TovsxmHjZyg8RZql6GQ=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=18Oyw0ng_phIf_TovsxmHjZyg8RZql6GQ&sz=w600" alt="PORTAL 002 en Emile Club — foto 28" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/17cfGuseLYiMptwalD1Jk8FvwTaa_jhnx=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=17cfGuseLYiMptwalD1Jk8FvwTaa_jhnx&sz=w600" alt="PORTAL 002 en Emile Club — foto 29" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1_cU06ue-2qyfXRBz5UXrxUbFIs_mNdM6=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1_cU06ue-2qyfXRBz5UXrxUbFIs_mNdM6&sz=w600" alt="PORTAL 002 en Emile Club — foto 30" loading="lazy"></a>
     </div>
+    <div style="text-align:center;margin:26px 0 10px">
+      <a class="btn primary" href="https://drive.google.com/drive/folders/1Q0RiAmsA4tM26vBlKBgGIGxwdhcaZuc2" target="_blank" rel="noopener">Álbum completo #002</a>
+    </div>
+
+    <h2 class="sec" style="font-size:1.05rem;margin-top:34px">Videos de la noche — PORTAL #002</h2>
+    <div class="accent-bar"></div>
+    <div class="grid cols3">
+      <div class="card"><div class="video-wrap tw-thumb" onclick="playDrive('1bHdycTRokF5tOVqhhBRIkh2aIa2v3mUU', this)"><span>▶&nbsp; Clip 1</span></div></div>
+      <div class="card"><div class="video-wrap tw-thumb" onclick="playDrive('1wMymijDBpTeaJtF038Lg3qaKRevD5kUR', this)"><span>▶&nbsp; Clip 2</span></div></div>
+      <div class="card"><div class="video-wrap tw-thumb" onclick="playDrive('1tUzm8eJvB2vA_3hgANpaNxn6qVRisF9z', this)"><span>▶&nbsp; Clip 3</span></div></div>
+      <div class="card"><div class="video-wrap tw-thumb" onclick="playDrive('1rtIG55fyYXt6XNHQSQTuKgyHjvb9L-i5', this)"><span>▶&nbsp; Clip 4</span></div></div>
+      <div class="card"><div class="video-wrap tw-thumb" onclick="playDrive('1E54kopUU9xhF1u5oB1FEiwf-2mP76AJW', this)"><span>▶&nbsp; Clip 5</span></div></div>
+      <div class="card"><div class="video-wrap tw-thumb" onclick="playDrive('1V6TvjBecXncSnsXVD2L2Jmi_4EaJT57C', this)"><span>▶&nbsp; Clip 6</span></div></div>
+    </div>
+    <div style="text-align:center;margin:26px 0 10px">
+      <a class="btn" href="https://drive.google.com/drive/folders/1IS5t1BGc-IDVz_LxNbmMhXCp7JcHEK6U" target="_blank" rel="noopener">Todos los videos #002</a>
+    </div>
+
+    <h2 class="sec" style="font-size:1.05rem;margin-top:34px">PORTAL #001 — Emile Club · 11 de abril de 2025</h2>
+    <div class="accent-bar"></div>
+    <div class="photo-grid">
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1TN8ZQEXSLP-T3JvJ3dCg-L-e7V6kDV4K=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1TN8ZQEXSLP-T3JvJ3dCg-L-e7V6kDV4K&sz=w600" alt="PORTAL 001 en Emile Club — foto 1" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1y-5e03ODcbPvzq9tMsyFpT6ey2ZGSA5F=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1y-5e03ODcbPvzq9tMsyFpT6ey2ZGSA5F&sz=w600" alt="PORTAL 001 en Emile Club — foto 2" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1EaSu7rHbYVRKOSCCCpKifVCnhGph1MqN=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1EaSu7rHbYVRKOSCCCpKifVCnhGph1MqN&sz=w600" alt="PORTAL 001 en Emile Club — foto 3" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1xxLeR9w_nC79gJP-toqYbzdouC0Ut_Z2=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1xxLeR9w_nC79gJP-toqYbzdouC0Ut_Z2&sz=w600" alt="PORTAL 001 en Emile Club — foto 4" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1fkY3Tu9ETp190Gi4hBrB3ZoKApA2U_oU=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1fkY3Tu9ETp190Gi4hBrB3ZoKApA2U_oU&sz=w600" alt="PORTAL 001 en Emile Club — foto 5" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/17cdydRFdExkpuQfAe0sAZmAPJneS4lEx=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=17cdydRFdExkpuQfAe0sAZmAPJneS4lEx&sz=w600" alt="PORTAL 001 en Emile Club — foto 6" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1NjtvTuS0aeDHPzyNmqzgMYDNTUEacCSK=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1NjtvTuS0aeDHPzyNmqzgMYDNTUEacCSK&sz=w600" alt="PORTAL 001 en Emile Club — foto 7" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/15YGUBfTkeavEkQluqRlPjCP6j951121D=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=15YGUBfTkeavEkQluqRlPjCP6j951121D&sz=w600" alt="PORTAL 001 en Emile Club — foto 8" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1v2KSIaNJ7v-YRsxaCw9Od7JgvrjPCVLU=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1v2KSIaNJ7v-YRsxaCw9Od7JgvrjPCVLU&sz=w600" alt="PORTAL 001 en Emile Club — foto 9" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1p0SEQ92QPiq_3m1Hx5h1T5ToFYG8AFD3=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1p0SEQ92QPiq_3m1Hx5h1T5ToFYG8AFD3&sz=w600" alt="PORTAL 001 en Emile Club — foto 10" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1BcJwqpTMV8Zn35mk7nh07ZaxxRtT6KCV=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1BcJwqpTMV8Zn35mk7nh07ZaxxRtT6KCV&sz=w600" alt="PORTAL 001 en Emile Club — foto 11" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1y2o9HrsO1Z0emhg_rXzV0Z2A3rOgSYzc=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1y2o9HrsO1Z0emhg_rXzV0Z2A3rOgSYzc&sz=w600" alt="PORTAL 001 en Emile Club — foto 12" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1PQmxiK_dphDinT-Dy82fgNgWaaT9QTkw=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1PQmxiK_dphDinT-Dy82fgNgWaaT9QTkw&sz=w600" alt="PORTAL 001 en Emile Club — foto 13" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1HIz_bIIjvi_Hij5m_RtEgcNSvd0g6x7y=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1HIz_bIIjvi_Hij5m_RtEgcNSvd0g6x7y&sz=w600" alt="PORTAL 001 en Emile Club — foto 14" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1xGS9TLgLv2U27SzPPPZzJW_ipGfNa0Qr=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1xGS9TLgLv2U27SzPPPZzJW_ipGfNa0Qr&sz=w600" alt="PORTAL 001 en Emile Club — foto 15" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/156MNHI8rxd9EyApxJxTf2Fi-gf0JMS8B=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=156MNHI8rxd9EyApxJxTf2Fi-gf0JMS8B&sz=w600" alt="PORTAL 001 en Emile Club — foto 16" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/147GdY2JphOzVtvRhGBH7Yih-62O0jiyR=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=147GdY2JphOzVtvRhGBH7Yih-62O0jiyR&sz=w600" alt="PORTAL 001 en Emile Club — foto 17" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1GTFvb3T0_8foiXeKE2VGyMnvBt7Dnuk0=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1GTFvb3T0_8foiXeKE2VGyMnvBt7Dnuk0&sz=w600" alt="PORTAL 001 en Emile Club — foto 18" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1w3Kc5PAC-VOInxYbPRtYMiCPbM4RKlPw=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1w3Kc5PAC-VOInxYbPRtYMiCPbM4RKlPw&sz=w600" alt="PORTAL 001 en Emile Club — foto 19" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1mVBt3cNrx0m3gsB77Dzazey4agBVZL78=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1mVBt3cNrx0m3gsB77Dzazey4agBVZL78&sz=w600" alt="PORTAL 001 en Emile Club — foto 20" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1Fu9nTcmpkfygI2SgTUwe4LP01qr0_NJm=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1Fu9nTcmpkfygI2SgTUwe4LP01qr0_NJm&sz=w600" alt="PORTAL 001 en Emile Club — foto 21" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1hvJCsuk1Whvc4wMKqazyjuDF7XlOcGTV=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1hvJCsuk1Whvc4wMKqazyjuDF7XlOcGTV&sz=w600" alt="PORTAL 001 en Emile Club — foto 22" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1_YVwI8ldcH1Jn-xv2yyH6N-XnXanuhJq=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1_YVwI8ldcH1Jn-xv2yyH6N-XnXanuhJq&sz=w600" alt="PORTAL 001 en Emile Club — foto 23" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1n9peGh1k0J5f_0ItFlPgsQQwjx1IbvKm=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1n9peGh1k0J5f_0ItFlPgsQQwjx1IbvKm&sz=w600" alt="PORTAL 001 en Emile Club — foto 24" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1hP4Z-hsM9ZrmmJ4pVAZ3gKFuIX9RbPcp=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1hP4Z-hsM9ZrmmJ4pVAZ3gKFuIX9RbPcp&sz=w600" alt="PORTAL 001 en Emile Club — foto 25" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1fELrjtkl_iamCfzPjdEe1KmVsQBhveZ4=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1fELrjtkl_iamCfzPjdEe1KmVsQBhveZ4&sz=w600" alt="PORTAL 001 en Emile Club — foto 26" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1ZADGFxpEkGFSCOlhhClBeb8p-NT9_6Fc=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1ZADGFxpEkGFSCOlhhClBeb8p-NT9_6Fc&sz=w600" alt="PORTAL 001 en Emile Club — foto 27" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1quRgfJcU3NCjlIAOTt5uJj1lgDzQYiFV=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1quRgfJcU3NCjlIAOTt5uJj1lgDzQYiFV&sz=w600" alt="PORTAL 001 en Emile Club — foto 28" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/10KcPJPWf5w_WqGIeV3CAEFtuwet0qYKj=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=10KcPJPWf5w_WqGIeV3CAEFtuwet0qYKj&sz=w600" alt="PORTAL 001 en Emile Club — foto 29" loading="lazy"></a>
+      <a class="photo-link" href="https://lh3.googleusercontent.com/d/1OcIXVK7qRzb8BMEuyX5x18YK0dOApQxE=w1600" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1OcIXVK7qRzb8BMEuyX5x18YK0dOApQxE&sz=w600" alt="PORTAL 001 en Emile Club — foto 30" loading="lazy"></a>
+    </div>
+    <div style="text-align:center;margin-top:26px">
+      <a class="btn primary" href="https://drive.google.com/drive/folders/1G_8C4Ctps6Kcw0fgw2VMmyh8eBikctXa" target="_blank" rel="noopener">Álbum completo #001</a>
+    </div>
+    <p class="sec-sub" style="margin-top:24px;text-align:center">📷 @photolechu</p>
   </section>
 
   <!-- ============ SETS ============ -->
@@ -442,7 +529,7 @@
         <img class="crew-photo" src="https://i1.sndcdn.com/avatars-3TkPPnjxHEVKhDsy-Pn0WTQ-t500x500.jpg" alt="Enzo Paradiso" loading="lazy">
         <div class="body">
           <h4>Enzo Paradiso</h4>
-          <p class="muted">DJ · Productor · Residente</p>
+          <p class="muted">DJ · Productor · Cofundador de PORTAL</p>
           <p class="muted" style="margin-top:8px;font-size:.82rem">DJ y productor uruguayo con una profunda conexión con la música deep, groovera y progresiva. Tocó en los clubes más importantes de Montevideo y firmó con sellos como Mango Alley, The Soundgarden, Manual y Balkan Connection.</p>
           <div class="mini-row">
             <a class="mini-btn" href="https://www.instagram.com/enzoparadisouy/" target="_blank" rel="noopener">Instagram</a>
@@ -473,7 +560,7 @@
         <img class="crew-photo" src="https://i1.sndcdn.com/avatars-873Ypo796igW15EU-cPoWJg-t500x500.jpg" alt="Maxov" loading="lazy">
         <div class="body">
           <h4>Maxov</h4>
-          <p class="muted">DJ · Productor · Residente</p>
+          <p class="muted">DJ · Productor · Cofundador de PORTAL</p>
           <p class="muted" style="margin-top:8px;font-size:.82rem">Maxov, a 29-year-old DJ and producer from Montevideo, Uruguay. His journey behind the decks began in 2022. Since then, he has shared the stage with international DJs such as Anna, Adam Sellouk, Mila Journée, Metodi Hristov, Hozho, Nico Moreno, Beico, MT93, Xzyko, among others. His music flows from Melodic, setting the tone for an introspective experience, and evolves into Techno, adding strength, rhythm, and darkness to the pulse of the night.</p>
           <div class="mini-row">
             <a class="mini-btn" href="https://www.instagram.com/maxovdj/" target="_blank" rel="noopener">Instagram</a>
@@ -517,7 +604,7 @@
         <img class="crew-photo" src="https://i1.sndcdn.com/avatars-pYNPjUpN5vTCYnKy-ENiYPQ-t500x500.jpg" alt="Ismael Pereyra" loading="lazy">
         <div class="body">
           <h4>Ismael Pereyra</h4>
-          <p class="muted">DJ · Productor · Residente</p>
+          <p class="muted">DJ · Productor · Cofundador de PORTAL</p>
           <p class="muted" style="margin-top:8px;font-size:.82rem">DJ y productor de Portal Music nacido en Montevideo. Propuesta progresiva, de sonidos profundos y envolventes: melodic techno y techno con un estilo oscuro y potente.</p>
           <div class="mini-row">
             <a class="mini-btn" href="https://www.instagram.com/ismapereyra_/" target="_blank" rel="noopener">Instagram</a>
@@ -669,6 +756,13 @@
     window.scrollTo({top:0, behavior:'smooth'});
   }
   document.querySelectorAll('.tab-btn').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+
+  function playDrive(id, el){
+    el.innerHTML = '<iframe src="https://drive.google.com/file/d/' + id +
+      '/preview" allow="autoplay" allowfullscreen style="width:100%;height:100%;border:0" title="Video PORTAL"></iframe>';
+    el.classList.remove('tw-thumb');
+    el.onclick = null;
+  }
 
   function playTwitch(id, el){
     el.innerHTML = '<iframe src="https://player.twitch.tv/?video=' + id +
