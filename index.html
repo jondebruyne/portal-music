@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PORTAL — Productora de música electrónica | Montevideo</title>
+<meta name="description" content="PORTAL: productora de música electrónica de Uruguay. Fiestas, sets, stream semanal con DJs y feedback de demos.">
+<style>
+  :root{
+    --bg:#000; --bg2:#0c0c0e; --card:#121214; --line:#232328;
+    --txt:#fff; --muted:#9b9ba3; --accent:#7C3AED; --accent2:#a78bfa;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;gap:16px}
+  .nav-logo svg{height:26px;width:auto;display:block}
+  .nav-logo img{height:34px;width:auto;display:block}
+  .logo-img{width:min(560px,86vw);height:auto;margin:auto;display:block}
+  .links-wrap .logo-img{width:min(300px,70vw)}
+  .tabs{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab-btn{background:none;border:none;color:var(--muted);font:inherit;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;cursor:pointer;border-radius:999px;white-space:nowrap;transition:.2s}
+  .tab-btn:hover{color:var(--txt)}
+  .tab-btn.active{color:var(--txt);background:var(--accent)}
+
+  /* ---------- HERO ---------- */
+  header{min-height:78vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 20px;position:relative;overflow:hidden}
+  header::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(ellipse 60% 45% at 50% 0%, rgba(124,58,237,.22), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 100%, rgba(124,58,237,.10), transparent 70%);pointer-events:none}
+  .hero-logo svg{width:min(560px,86vw);height:auto;display:block;margin:auto}
+  .hero-tag{margin-top:26px;color:var(--muted);letter-spacing:.35em;text-transform:uppercase;font-size:.8rem}
+  .hero-cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:999px;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);transition:.2s;cursor:pointer;background:var(--card)}
+  .btn:hover{border-color:var(--accent2);transform:translateY(-2px)}
+  .btn.primary{background:var(--accent);border-color:var(--accent)}
+  .btn.primary:hover{background:#8b5cf6}
+
+  /* ---------- LAYOUT ---------- */
+  main{max-width:1100px;margin:auto;padding:0 20px 80px}
+  section.tab-panel{display:none;padding-top:48px;animation:fade .35s ease}
+  section.tab-panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  h2.sec{font-size:1.6rem;letter-spacing:.25em;text-transform:uppercase;margin-bottom:6px}
+  .sec-sub{color:var(--muted);margin-bottom:32px;font-size:.95rem}
+  .accent-bar{width:48px;height:3px;background:var(--accent);margin:14px 0 22px}
+
+  /* ---------- EVENTS ---------- */
+  .event-feature{border:1px solid var(--accent);border-radius:16px;padding:34px;background:linear-gradient(135deg,rgba(124,58,237,.14),transparent 60%);margin-bottom:36px}
+  .pill{display:inline-block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;background:var(--accent);padding:4px 12px;border-radius:999px;margin-bottom:14px}
+  .event-feature h3{font-size:2rem;line-height:1.15;margin-bottom:8px}
+  .event-meta{color:var(--muted);margin-bottom:20px}
+  .grid{display:grid;gap:18px}
+  .grid.cols3{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.2s}
+  .card:hover{border-color:var(--accent2);transform:translateY(-3px)}
+  .card .body{padding:18px}
+  .card h4{margin-bottom:4px}
+  .card .muted{color:var(--muted);font-size:.88rem}
+  .ph{aspect-ratio:16/10;background:linear-gradient(135deg,#1a1a1f,#0e0e11);display:flex;align-items:center;justify-content:center;color:#3a3a42;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase}
+
+  /* ---------- PHOTOS ---------- */
+  .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+  .photo{aspect-ratio:1/1;background:linear-gradient(135deg,#17171b,#0b0b0d);border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#3a3a42;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;transition:.2s}
+  .photo:hover{border-color:var(--accent2)}
+
+  /* ---------- SETS / VIDEOS ---------- */
+  .video-wrap{aspect-ratio:16/9;background:#0b0b0d}
+  .video-wrap iframe{width:100%;height:100%;border:0;display:block}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  @media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
+  form label{display:block;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+  form input,form textarea,form select{width:100%;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--txt);font:inherit}
+  form input:focus,form textarea:focus,form select:focus{outline:none;border-color:var(--accent)}
+  .info-box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:18px}
+  .info-box h4{margin-bottom:6px;letter-spacing:.08em}
+
+  /* ---------- LINKS (treelink) ---------- */
+  .links-wrap{max-width:480px;margin:auto;text-align:center}
+  .links-wrap .hero-logo svg{width:min(300px,70vw)}
+  .link-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;margin-top:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;transition:.2s}
+  .link-btn:hover{border-color:var(--accent2);transform:translateY(-2px);background:#17171b}
+  .link-btn.main{background:var(--accent);border-color:var(--accent)}
+  .link-btn svg{width:20px;height:20px;flex:none}
+
+  footer{border-top:1px solid var(--line);text-align:center;padding:36px 20px;color:var(--muted);font-size:.8rem}
+  footer .socials{display:flex;gap:18px;justify-content:center;margin-bottom:14px}
+  footer .socials a svg{width:22px;height:22px;fill:var(--muted);transition:.2s}
+  footer .socials a:hover svg{fill:var(--txt)}
+</style>
+</head>
+<body>
+
+<!-- ============ LOGO SVG (reutilizable) ============ -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="portal-logo" fill="none" stroke="#fff" stroke-width="13">
+      <!-- P -->
+      <path d="M30 105 L30 21 L57 21 A24 24 0 0 1 57 69 L30 69"/>
+      <!-- O -->
+      <circle cx="135" cy="63" r="33"/>
+      <!-- R -->
+      <path d="M205 105 L205 21 L232 21 A24 24 0 0 1 232 69 L205 69"/>
+      <path d="M232 69 L255 105"/>
+      <!-- T -->
+      <path d="M280 21 L344 21 M312 21 L312 105"/>
+      <!-- A (sin barra) -->
+      <path d="M362 105 L399 21 L424 105"/>
+      <!-- L -->
+      <path d="M452 21 L452 99 M446 99 L506 99"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="showTab('home');return false">
+      <!-- Logo real: guardar el archivo como portal-logo.png junto a este HTML -->
+      <img src="portal-logo.png" alt="PORTAL" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <svg viewBox="0 0 540 126" style="display:none"><use href="#portal-logo"/></svg>
+    </a>
+    <div class="tabs" id="tabs">
+      <button class="tab-btn" data-tab="events">Events</button>
+      <button class="tab-btn" data-tab="photos">Photos</button>
+      <button class="tab-btn" data-tab="sets">Sets</button>
+      <button class="tab-btn" data-tab="videos">Videos</button>
+      <button class="tab-btn" data-tab="contact">Contact</button>
+      <button class="tab-btn" data-tab="links">Links</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO (home) ============ -->
+<header id="panel-home" class="tab-panel active" style="display:flex">
+  <div class="hero-logo">
+    <!-- Logo real: guardar el archivo como portal-logo.png junto a este HTML -->
+    <img class="logo-img" src="portal-logo.png" alt="PORTAL" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <svg viewBox="0 0 540 126" style="display:none"><use href="#portal-logo"/></svg>
+  </div>
+  <p class="hero-tag">Música electrónica · Montevideo, Uruguay</p>
+  <div class="hero-cta">
+    <a class="btn primary" href="#" onclick="showTab('events');return false">Próximos eventos</a>
+    <!-- ⚠️ REEMPLAZAR con la URL real del canal -->
+    <a class="btn" href="https://www.youtube.com/@portalmusic" target="_blank" rel="noopener">Stream — Lunes 21:00</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ EVENTS ============ -->
+  <section class="tab-panel" id="panel-events">
+    <h2 class="sec">Events</h2>
+    <div class="accent-bar"></div>
+    <p class="sec-sub">Fiestas y fechas de PORTAL.</p>
+
+    <!-- Próximo evento destacado: editar acá -->
+    <div class="event-feature">
+      <span class="pill">Próximo evento</span>
+      <h3>PORTAL — Próxima fecha</h3>
+      <p class="event-meta">📅 Fecha a anunciar &nbsp;·&nbsp; 📍 Venue a anunciar &nbsp;·&nbsp; 🎟️ Preventa exclusiva por el canal de difusión</p>
+      <a class="btn primary" href="https://redtickets.uy" target="_blank" rel="noopener">Comprar entradas</a>
+      <a class="btn" href="#" onclick="showTab('links');return false">Unirme a la preventa</a>
+    </div>
+
+    <h2 class="sec" style="font-size:1.1rem">Eventos pasados</h2>
+    <div class="accent-bar"></div>
+    <div class="grid cols3">
+      <div class="card"><div class="ph">Foto del evento</div><div class="body"><h4>PORTAL #004</h4><p class="muted">700 personas · Montevideo</p></div></div>
+      <div class="card"><div class="ph">Foto del evento</div><div class="body"><h4>PORTAL #003</h4><p class="muted">Montevideo</p></div></div>
+      <div class="card"><div class="ph">Foto del evento</div><div class="body"><h4>PORTAL #002</h4><p class="muted">Montevideo</p></div></div>
+      <div class="card"><div class="ph">Foto del evento</div><div class="body"><h4>PORTAL #001</h4><p class="muted">Montevideo</p></div></div>
+    </div>
+  </section>
+
+  <!-- ============ PHOTOS ============ -->
+  <section class="tab-panel" id="panel-photos">
+    <h2 class="sec">Photos</h2>
+    <div class="accent-bar"></div>
+    <p class="sec-sub">Galería de nuestras fiestas y streams. <span style="color:#5a5a64">(Reemplazar cada cuadro por &lt;img src="..."&gt; con las fotos reales.)</span></p>
+    <div class="photo-grid">
+      <div class="photo">Foto 01</div><div class="photo">Foto 02</div><div class="photo">Foto 03</div>
+      <div class="photo">Foto 04</div><div class="photo">Foto 05</div><div class="photo">Foto 06</div>
+      <div class="photo">Foto 07</div><div class="photo">Foto 08</div><div class="photo">Foto 09</div>
+      <div class="photo">Foto 10</div><div class="photo">Foto 11</div><div class="photo">Foto 12</div>
+    </div>
+  </section>
+
+  <!-- ============ SETS ============ -->
+  <section class="tab-panel" id="panel-sets">
+    <h2 class="sec">Sets</h2>
+    <div class="accent-bar"></div>
+    <p class="sec-sub">Un set nuevo de nuestros residentes cada jueves 19:00. <span style="color:#5a5a64">(Reemplazar VIDEO_ID por el ID real de cada video de YouTube.)</span></p>
+    <div class="grid cols3">
+      <div class="card">
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Portal Sets #01" loading="lazy" allowfullscreen></iframe></div>
+        <div class="body"><h4>Portal Sets #01 — DJ 1</h4><p class="muted">Género · Lugar de grabación</p></div>
+      </div>
+      <div class="card">
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Portal Sets #02" loading="lazy" allowfullscreen></iframe></div>
+        <div class="body"><h4>Portal Sets #02 — DJ 2</h4><p class="muted">Género · Lugar de grabación</p></div>
+      </div>
+      <div class="card">
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Portal Sets #03" loading="lazy" allowfullscreen></iframe></div>
+        <div class="body"><h4>Portal Sets #03 — DJ 3</h4><p class="muted">Género · Lugar de grabación</p></div>
+      </div>
+      <div class="card">
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_4" title="Portal Sets #04" loading="lazy" allowfullscreen></iframe></div>
+        <div class="body"><h4>Portal Sets #04 — DJ 4</h4><p class="muted">Género · Lugar de grabación</p></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:30px">
+      <!-- ⚠️ REEMPLAZAR con la URL real del canal -->
+      <a class="btn primary" href="https://www.youtube.com/@portalmusic" target="_blank" rel="noopener">Ver todos los sets en YouTube</a>
+    </div>
+  </section>
+
+  <!-- ============ VIDEOS ============ -->
+  <section class="tab-panel" id="panel-videos">
+    <h2 class="sec">Videos</h2>
+    <div class="accent-bar"></div>
+    <p class="sec-sub">PORTAL Stream: todos los lunes 21:00 en vivo — DJs y productores uruguayos + feedback de demos.</p>
+    <div class="grid cols3">
+      <div class="card">
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_5" title="Portal Stream — último episodio" loading="lazy" allowfullscreen></iframe></div>
+        <div class="body"><h4>Portal Stream — último episodio</h4><p class="muted">Invitado + feedback de demos</p></div>
+      </div>
+      <div class="card">
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_6" title="Portal Stream" loading="lazy" allowfullscreen></iframe></div>
+        <div class="body"><h4>Portal Stream #—</h4><p class="muted">Invitado + feedback de demos</p></div>
+      </div>
+      <div class="card">
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_7" title="Portal Stream" loading="lazy" allowfullscreen></iframe></div>
+        <div class="body"><h4>Portal Stream #—</h4><p class="muted">Invitado + feedback de demos</p></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:30px">
+      <!-- ⚠️ REEMPLAZAR con la URL real del canal -->
+      <a class="btn primary" href="https://www.youtube.com/@portalmusic" target="_blank" rel="noopener">Suscribite al canal</a>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="tab-panel" id="panel-contact">
+    <h2 class="sec">Contact</h2>
+    <div class="accent-bar"></div>
+    <p class="sec-sub">Bookings, demos, prensa y sponsors.</p>
+    <div class="contact-grid">
+      <div>
+        <!-- El form abre el mail del visitante con todo precargado (no necesita servidor) -->
+        <form onsubmit="sendMail(event)">
+          <label for="f-name">Nombre</label>
+          <input id="f-name" required placeholder="Tu nombre">
+          <label for="f-mail">Email</label>
+          <input id="f-mail" type="email" required placeholder="tu@mail.com">
+          <label for="f-topic">Motivo</label>
+          <select id="f-topic">
+            <option>Enviar demo (feedback en el stream)</option>
+            <option>Booking / contratar un DJ</option>
+            <option>Sponsor / marca</option>
+            <option>Prensa</option>
+            <option>Otro</option>
+          </select>
+          <label for="f-msg">Mensaje</label>
+          <textarea id="f-msg" rows="5" required placeholder="Contanos… (si es un demo, pegá el link de SoundCloud/Drive)"></textarea>
+          <button class="btn primary" type="submit" style="margin-top:20px">Enviar</button>
+        </form>
+      </div>
+      <div>
+        <div class="info-box">
+          <h4>📩 Demos</h4>
+          <p class="muted">Mandá tu demo y le damos feedback en vivo en el stream de los lunes. Link de SoundCloud o Drive, no archivos pesados.</p>
+        </div>
+        <div class="info-box">
+          <h4>🎧 Bookings</h4>
+          <p class="muted">Nuestros 4 residentes están disponibles para fechas. Escribinos con fecha, venue y horario.</p>
+        </div>
+        <div class="info-box">
+          <h4>🤝 Marcas y sponsors</h4>
+          <p class="muted">Stream semanal + fiestas de hasta 700 personas. Pedinos el media kit.</p>
+        </div>
+        <div class="info-box">
+          <h4>📍 Montevideo, Uruguay</h4>
+          <!-- ⚠️ REEMPLAZAR por el mail real de la productora -->
+          <p class="muted">portalmusic.uy@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LINKS (treelink) ============ -->
+  <section class="tab-panel" id="panel-links">
+    <div class="links-wrap">
+      <div class="hero-logo">
+        <img class="logo-img" src="portal-logo.png" alt="PORTAL" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <svg viewBox="0 0 540 126" style="display:none"><use href="#portal-logo"/></svg>
+      </div>
+      <p class="hero-tag" style="margin:18px 0 28px">Todos nuestros links</p>
+
+      <a class="link-btn main" href="https://www.instagram.com/portalmusic.uy/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4 1.2-.1 1.6-.1 4.8-.1M12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.8-2.2 1.4C1.3 2.7.8 3.4.5 4.2.2 5 .1 5.8 0 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.2 2.1.5 2.9.3.8.8 1.5 1.4 2.2.7.6 1.4 1.1 2.2 1.4.8.3 1.6.4 2.9.5C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c1.3-.1 2.1-.2 2.9-.5.8-.3 1.5-.8 2.2-1.4.6-.7 1.1-1.4 1.4-2.2.3-.8.4-1.6.5-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.2-2.1-.5-2.9-.3-.8-.8-1.5-1.4-2.2C21.3 1.3 20.6.8 19.8.5 19 .2 18.2.1 16.9 0 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg>
+        Instagram
+      </a>
+
+      <!-- ⚠️ REEMPLAZAR con la URL real del canal -->
+      <a class="link-btn" href="https://www.youtube.com/@portalmusic" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+        YouTube — Stream lunes 21:00
+      </a>
+
+      <a class="link-btn" href="#" onclick="showTab('events');return false">🎟️&nbsp; Entradas — próximo evento</a>
+      <a class="link-btn" href="#" onclick="showTab('contact');return false">📩&nbsp; Mandanos tu demo</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="socials">
+    <a href="https://www.instagram.com/portalmusic.uy/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4 1.2-.1 1.6-.1 4.8-.1M12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.8-2.2 1.4C1.3 2.7.8 3.4.5 4.2.2 5 .1 5.8 0 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.2 2.1.5 2.9.3.8.8 1.5 1.4 2.2.7.6 1.4 1.1 2.2 1.4.8.3 1.6.4 2.9.5C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c1.3-.1 2.1-.2 2.9-.5.8-.3 1.5-.8 2.2-1.4.6-.7 1.1-1.4 1.4-2.2.3-.8.4-1.6.5-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.2-2.1-.5-2.9-.3-.8-.8-1.5-1.4-2.2C21.3 1.3 20.6.8 19.8.5 19 .2 18.2.1 16.9 0 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg>
+    </a>
+    <!-- ⚠️ REEMPLAZAR con la URL real del canal -->
+    <a href="https://www.youtube.com/@portalmusic" target="_blank" rel="noopener" aria-label="YouTube">
+      <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+    </a>
+  </div>
+  <p>PORTAL © 2026 · Montevideo, Uruguay · Stream todos los lunes 21:00</p>
+</footer>
+
+<script>
+  const panels = ['home','events','photos','sets','videos','contact','links'];
+  function showTab(name){
+    panels.forEach(p=>{
+      const el = document.getElementById('panel-'+p);
+      if(!el) return;
+      const on = p===name;
+      el.classList.toggle('active', on);
+      el.style.display = on ? (p==='home' ? 'flex' : 'block') : 'none';
+    });
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b.dataset.tab===name));
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  document.querySelectorAll('.tab-btn').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+
+  function sendMail(e){
+    e.preventDefault();
+    // ⚠️ REEMPLAZAR por el mail real de la productora
+    const to = 'portalmusic.uy@gmail.com';
+    const name = document.getElementById('f-name').value;
+    const mail = document.getElementById('f-mail').value;
+    const topic = document.getElementById('f-topic').value;
+    const msg = document.getElementById('f-msg').value;
+    const subject = encodeURIComponent('[Web] ' + topic + ' — ' + name);
+    const body = encodeURIComponent(msg + '\n\n— ' + name + ' (' + mail + ')');
+    window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+  }
+</script>
+</body>
+</html>
