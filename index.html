@@ -91,6 +91,13 @@
   .link-btn.main{background:var(--accent);border-color:var(--accent)}
   .link-btn svg{width:20px;height:20px;flex:none}
 
+  .crew-photo{aspect-ratio:1/1;object-fit:cover;width:100%}
+  .mini-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .mini-btn{display:inline-block;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--bg2);color:var(--txt);font:inherit;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:.2s}
+  .mini-btn:hover{border-color:var(--accent2)}
+  .mini-btn.toggle{background:var(--accent);border-color:var(--accent)}
+  .crew-expand{display:none;padding:0 18px 18px}
+
   footer{border-top:1px solid var(--line);text-align:center;padding:36px 20px;color:var(--muted);font-size:.8rem}
   footer .socials{display:flex;gap:18px;justify-content:center;margin-bottom:14px}
   footer .socials a svg{width:22px;height:22px;fill:var(--muted);transition:.2s}
@@ -230,17 +237,9 @@
     <div class="accent-bar"></div>
     <p class="sec-sub">PORTAL Stream: todos los lunes 21:00 en vivo — DJs y productores uruguayos + feedback de demos.</p>
     <div class="grid cols3">
-      <div class="card">
-        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_5" title="Portal Stream — último episodio" loading="lazy" allowfullscreen></iframe></div>
-        <div class="body"><h4>Portal Stream — último episodio</h4><p class="muted">Invitado + feedback de demos</p></div>
-      </div>
-      <div class="card">
-        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_6" title="Portal Stream" loading="lazy" allowfullscreen></iframe></div>
-        <div class="body"><h4>Portal Stream #—</h4><p class="muted">Invitado + feedback de demos</p></div>
-      </div>
-      <div class="card">
-        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_7" title="Portal Stream" loading="lazy" allowfullscreen></iframe></div>
-        <div class="body"><h4>Portal Stream #—</h4><p class="muted">Invitado + feedback de demos</p></div>
+      <div class="card" style="grid-column:1/-1;max-width:760px;margin:auto;width:100%">
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/UgyvZGs7iaA" title="Portal Stream 57 — Demo Feedback w/ Buex" loading="lazy" allowfullscreen></iframe></div>
+        <div class="body"><h4>57 | Demo Feedback w/ Buex</h4><p class="muted">Portal Stream · invitado + feedback de demos en vivo</p></div>
       </div>
     </div>
     <div style="text-align:center;margin-top:30px">
@@ -253,31 +252,128 @@
   <section class="tab-panel" id="panel-crew">
     <h2 class="sec">Portal Crew</h2>
     <div class="accent-bar"></div>
-    <p class="sec-sub">Los residentes de PORTAL. Un set nuevo cada jueves 19:00 en YouTube.</p>
+    <p class="sec-sub">Los 5 integrantes de PORTAL. Stream los lunes 21:00 · sets los jueves 19:00.</p>
     <div class="grid cols3">
       <div class="card">
-        <div class="ph" style="aspect-ratio:1/1">Foto DJ 1</div>
-        <div class="body"><h4>DJ 1</h4><p class="muted">Género · Residente</p>
-        <p style="margin-top:10px"><a class="btn" style="padding:8px 18px;font-size:.75rem" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></p></div>
+        <img class="crew-photo" src="https://i1.sndcdn.com/avatars-3TkPPnjxHEVKhDsy-Pn0WTQ-t500x500.jpg" alt="Enzo Paradiso" loading="lazy">
+        <div class="body">
+          <h4>Enzo Paradiso</h4>
+          <p class="muted">DJ · Productor · Residente</p>
+          <p class="muted" style="margin-top:8px;font-size:.82rem">DJ y productor uruguayo con una profunda conexión con la música deep, groovera y progresiva. Tocó en los clubes más importantes de Montevideo y firmó con sellos como Mango Alley, The Soundgarden, Manual y Balkan Connection.</p>
+          <div class="mini-row">
+            <a class="mini-btn" href="https://www.instagram.com/enzoparadisouy/" target="_blank" rel="noopener">Instagram</a>
+            <a class="mini-btn" href="https://soundcloud.com/enzoparadiso-dj" target="_blank" rel="noopener">SoundCloud</a>
+            <a class="mini-btn" href="https://open.spotify.com/artist/46tgTjuJUCmqTRItQwgCEO" target="_blank" rel="noopener">Spotify</a>
+          </div>
+          <div class="mini-row">
+            <button class="mini-btn toggle" onclick="toggleCrew('enzo','sets')">▶ Sets</button>
+            <button class="mini-btn toggle" onclick="toggleCrew('enzo','videos')">▶ Videos</button>
+          </div>
+        </div>
+        <div class="crew-expand" id="crew-enzo-sets">
+          <iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/282966758&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="320" style="width:100%;border:0" loading="lazy" title="Sets de Enzo Paradiso en SoundCloud"></iframe>
+        </div>
+        <div class="crew-expand" id="crew-enzo-videos">
+          <p class="muted" style="padding:6px 0 12px">Sus sets en video se estrenan los jueves en el canal de PORTAL.</p>
+          <a class="btn" style="margin-bottom:16px" href="https://www.youtube.com/@Portalmusictv" target="_blank" rel="noopener">Ver en YouTube</a>
+        </div>
       </div>
       <div class="card">
-        <div class="ph" style="aspect-ratio:1/1">Foto DJ 2</div>
-        <div class="body"><h4>DJ 2</h4><p class="muted">Género · Residente</p>
-        <p style="margin-top:10px"><a class="btn" style="padding:8px 18px;font-size:.75rem" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></p></div>
+        <img class="crew-photo" src="https://i1.sndcdn.com/avatars-873Ypo796igW15EU-cPoWJg-t500x500.jpg" alt="Maxov" loading="lazy">
+        <div class="body">
+          <h4>Maxov</h4>
+          <p class="muted">DJ · Productor · Residente</p>
+          <p class="muted" style="margin-top:8px;font-size:.82rem">DJ y productor de Montevideo, Uruguay. En todas las redes: @maxovdj.</p>
+          <div class="mini-row">
+            <a class="mini-btn" href="https://www.instagram.com/maxovdj/" target="_blank" rel="noopener">Instagram</a>
+            <a class="mini-btn" href="https://soundcloud.com/maxovdj" target="_blank" rel="noopener">SoundCloud</a>
+            <a class="mini-btn" href="https://open.spotify.com/artist/52E8PWzoCnQgNuWziVX2F7" target="_blank" rel="noopener">Spotify</a>
+          </div>
+          <div class="mini-row">
+            <button class="mini-btn toggle" onclick="toggleCrew('maxov','sets')">▶ Sets</button>
+            <button class="mini-btn toggle" onclick="toggleCrew('maxov','videos')">▶ Videos</button>
+          </div>
+        </div>
+        <div class="crew-expand" id="crew-maxov-sets">
+          <iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/833088433&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="320" style="width:100%;border:0" loading="lazy" title="Sets de Maxov en SoundCloud"></iframe>
+        </div>
+        <div class="crew-expand" id="crew-maxov-videos">
+          <p class="muted" style="padding:6px 0 12px">Sus sets en video se estrenan los jueves en el canal de PORTAL.</p>
+          <a class="btn" style="margin-bottom:16px" href="https://www.youtube.com/@Portalmusictv" target="_blank" rel="noopener">Ver en YouTube</a>
+        </div>
       </div>
       <div class="card">
-        <div class="ph" style="aspect-ratio:1/1">Foto DJ 3</div>
-        <div class="body"><h4>DJ 3</h4><p class="muted">Género · Residente</p>
-        <p style="margin-top:10px"><a class="btn" style="padding:8px 18px;font-size:.75rem" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></p></div>
+        <img class="crew-photo" src="https://i1.sndcdn.com/avatars-MF3WkYqmWJKT0oZP-z8bNTQ-t500x500.jpg" alt="Jon DeBruyne" loading="lazy">
+        <div class="body">
+          <h4>Jon DeBruyne</h4>
+          <p class="muted">Productor · Cofundador de Portal</p>
+          <p class="muted" style="margin-top:8px;font-size:.82rem">Productor y cofundador de Portal Music. Organic house y progressive melódico desde Montevideo, con lanzamientos en Cafe De Anatolia, Balkan Connection, Future Avenue y Electric Eden Records.</p>
+          <div class="mini-row">
+            <a class="mini-btn" href="https://www.instagram.com/jondebruyn/" target="_blank" rel="noopener">Instagram</a>
+            <a class="mini-btn" href="https://soundcloud.com/juan-manuel-brum-masello" target="_blank" rel="noopener">SoundCloud</a>
+            <a class="mini-btn" href="https://open.spotify.com/artist/1zjWQToLLJqJe23ODPNeGL" target="_blank" rel="noopener">Spotify</a>
+          </div>
+          <div class="mini-row">
+            <button class="mini-btn toggle" onclick="toggleCrew('jon','sets')">▶ Sets</button>
+            <button class="mini-btn toggle" onclick="toggleCrew('jon','videos')">▶ Videos</button>
+          </div>
+        </div>
+        <div class="crew-expand" id="crew-jon-sets">
+          <iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/173680769&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="320" style="width:100%;border:0" loading="lazy" title="Sets de Jon DeBruyne en SoundCloud"></iframe>
+        </div>
+        <div class="crew-expand" id="crew-jon-videos">
+          <p class="muted" style="padding:6px 0 12px">Sus sets en video se estrenan los jueves en el canal de PORTAL.</p>
+          <a class="btn" style="margin-bottom:16px" href="https://www.youtube.com/@Portalmusictv" target="_blank" rel="noopener">Ver en YouTube</a>
+        </div>
       </div>
       <div class="card">
-        <div class="ph" style="aspect-ratio:1/1">Foto DJ 4</div>
-        <div class="body"><h4>DJ 4</h4><p class="muted">Género · Residente</p>
-        <p style="margin-top:10px"><a class="btn" style="padding:8px 18px;font-size:.75rem" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></p></div>
+        <img class="crew-photo" src="https://i1.sndcdn.com/avatars-pYNPjUpN5vTCYnKy-ENiYPQ-t500x500.jpg" alt="Ismael Pereyra" loading="lazy">
+        <div class="body">
+          <h4>Ismael Pereyra</h4>
+          <p class="muted">DJ · Productor · Residente</p>
+          <p class="muted" style="margin-top:8px;font-size:.82rem">DJ y productor de Portal Music nacido en Montevideo. Propuesta progresiva, de sonidos profundos y envolventes: melodic techno y techno con un estilo oscuro y potente.</p>
+          <div class="mini-row">
+            <a class="mini-btn" href="https://www.instagram.com/ismapereyra_/" target="_blank" rel="noopener">Instagram</a>
+            <a class="mini-btn" href="https://soundcloud.com/isma-pereyra1997" target="_blank" rel="noopener">SoundCloud</a>
+            
+          </div>
+          <div class="mini-row">
+            <button class="mini-btn toggle" onclick="toggleCrew('isma','sets')">▶ Sets</button>
+            <button class="mini-btn toggle" onclick="toggleCrew('isma','videos')">▶ Videos</button>
+          </div>
+        </div>
+        <div class="crew-expand" id="crew-isma-sets">
+          <iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/1605571398&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="320" style="width:100%;border:0" loading="lazy" title="Sets de Ismael Pereyra en SoundCloud"></iframe>
+        </div>
+        <div class="crew-expand" id="crew-isma-videos">
+          <p class="muted" style="padding:6px 0 12px">Sus sets en video se estrenan los jueves en el canal de PORTAL.</p>
+          <a class="btn" style="margin-bottom:16px" href="https://www.youtube.com/@Portalmusictv" target="_blank" rel="noopener">Ver en YouTube</a>
+        </div>
       </div>
-    </div>
-    <div style="text-align:center;margin-top:30px">
-      <a class="btn primary" href="https://www.youtube.com/@Portalmusictv" target="_blank" rel="noopener">Ver sus sets en YouTube</a>
+      <div class="card">
+        <img class="crew-photo" src="https://i1.sndcdn.com/avatars-xLyvVG1tLhD2623D-W0xPdw-t500x500.jpg" alt="Diego Degliotti" loading="lazy">
+        <div class="body">
+          <h4>Diego Degliotti</h4>
+          <p class="muted">DJ · Residente</p>
+          <p class="muted" style="margin-top:8px;font-size:.82rem">DJ de Montevideo y residente de Portal Music. Sus sets en vivo van del house al techno: warm ups y sets completos en SoundCloud.</p>
+          <div class="mini-row">
+            <a class="mini-btn" href="https://www.instagram.com/diegodegliotti/" target="_blank" rel="noopener">Instagram</a>
+            <a class="mini-btn" href="https://soundcloud.com/diego-degliotti" target="_blank" rel="noopener">SoundCloud</a>
+            
+          </div>
+          <div class="mini-row">
+            <button class="mini-btn toggle" onclick="toggleCrew('diego','sets')">▶ Sets</button>
+            <button class="mini-btn toggle" onclick="toggleCrew('diego','videos')">▶ Videos</button>
+          </div>
+        </div>
+        <div class="crew-expand" id="crew-diego-sets">
+          <iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/720202276&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="320" style="width:100%;border:0" loading="lazy" title="Sets de Diego Degliotti en SoundCloud"></iframe>
+        </div>
+        <div class="crew-expand" id="crew-diego-videos">
+          <p class="muted" style="padding:6px 0 12px">Sus sets en video se estrenan los jueves en el canal de PORTAL.</p>
+          <a class="btn" style="margin-bottom:16px" href="https://www.youtube.com/@Portalmusictv" target="_blank" rel="noopener">Ver en YouTube</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -384,6 +480,16 @@
     window.scrollTo({top:0, behavior:'smooth'});
   }
   document.querySelectorAll('.tab-btn').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+
+  function toggleCrew(id, kind){
+    const other = kind === 'sets' ? 'videos' : 'sets';
+    document.getElementById('crew-'+id+'-'+other).style.display = 'none';
+    const el = document.getElementById('crew-'+id+'-'+kind);
+    const open = el.style.display === 'block';
+    el.style.display = open ? 'none' : 'block';
+    const ifr = el.querySelector('iframe[data-src]');
+    if (ifr && !ifr.src) ifr.src = ifr.dataset.src;
+  }
 
   function sendMail(e){
     e.preventDefault();
