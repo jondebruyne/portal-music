@@ -103,6 +103,20 @@
   .tw-thumb{cursor:pointer;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1b1330,#0b0b0d);color:#a78bfa;font-size:.85rem;letter-spacing:.06em;padding:10px;text-align:center}
   .tw-thumb:hover{color:#fff;background:linear-gradient(135deg,#241743,#0e0e11)}
 
+  @media(max-width:640px){
+    .nav-inner{padding:10px 12px;gap:8px}
+    .nav-logo img{height:24px}
+    .tab-btn{padding:7px 10px;font-size:.76rem;letter-spacing:.08em}
+    header{min-height:62vh;padding:40px 16px}
+    .hero-tag{letter-spacing:.2em;font-size:.7rem}
+    h2.sec{font-size:1.1rem;letter-spacing:.12em}
+    main{padding:0 14px 60px}
+    .photo-grid{grid-template-columns:repeat(2,1fr)}
+    .event-feature{padding:22px}
+    .btn{padding:11px 20px;font-size:.78rem}
+    .card .body{padding:14px}
+  }
+
   footer{border-top:1px solid var(--line);text-align:center;padding:36px 20px;color:var(--muted);font-size:.8rem}
   footer .socials{display:flex;gap:18px;justify-content:center;margin-bottom:14px}
   footer .socials a svg{width:22px;height:22px;fill:var(--muted);transition:.2s}
@@ -372,28 +386,27 @@
   <section class="tab-panel" id="panel-sets">
     <h2 class="sec">Sets</h2>
     <div class="accent-bar"></div>
-    <p class="sec-sub">Un set nuevo de nuestros residentes cada jueves 19:00. <span style="color:#5a5a64">(Reemplazar VIDEO_ID por el ID real de cada video de YouTube.)</span></p>
+    <p class="sec-sub">Los sets de nuestros residentes, directo desde SoundCloud.</p>
     <div class="grid cols3">
       <div class="card">
-        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Portal Sets #01" loading="lazy" allowfullscreen></iframe></div>
-        <div class="body"><h4>Portal Sets #01 — DJ 1</h4><p class="muted">Género · Lugar de grabación</p></div>
+        <div class="body" style="padding-bottom:8px"><h4>Enzo Paradiso</h4></div>
+        <div style="padding:0 18px 18px"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/282966758&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="300" style="width:100%;border:0" loading="lazy" title="Sets de Enzo Paradiso en SoundCloud"></iframe></div>
       </div>
       <div class="card">
-        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Portal Sets #02" loading="lazy" allowfullscreen></iframe></div>
-        <div class="body"><h4>Portal Sets #02 — DJ 2</h4><p class="muted">Género · Lugar de grabación</p></div>
+        <div class="body" style="padding-bottom:8px"><h4>Maxov</h4></div>
+        <div style="padding:0 18px 18px"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/833088433&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="300" style="width:100%;border:0" loading="lazy" title="Sets de Maxov en SoundCloud"></iframe></div>
       </div>
       <div class="card">
-        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Portal Sets #03" loading="lazy" allowfullscreen></iframe></div>
-        <div class="body"><h4>Portal Sets #03 — DJ 3</h4><p class="muted">Género · Lugar de grabación</p></div>
+        <div class="body" style="padding-bottom:8px"><h4>Ismael Pereyra</h4></div>
+        <div style="padding:0 18px 18px"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/1605571398&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="300" style="width:100%;border:0" loading="lazy" title="Sets de Ismael Pereyra en SoundCloud"></iframe></div>
       </div>
       <div class="card">
-        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/VIDEO_ID_4" title="Portal Sets #04" loading="lazy" allowfullscreen></iframe></div>
-        <div class="body"><h4>Portal Sets #04 — DJ 4</h4><p class="muted">Género · Lugar de grabación</p></div>
+        <div class="body" style="padding-bottom:8px"><h4>Diego Degliotti</h4></div>
+        <div style="padding:0 18px 18px"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/720202276&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="300" style="width:100%;border:0" loading="lazy" title="Sets de Diego Degliotti en SoundCloud"></iframe></div>
       </div>
     </div>
     <div style="text-align:center;margin-top:30px">
-      
-      <a class="btn primary" href="https://www.youtube.com/@Portalmusictv" target="_blank" rel="noopener">Ver todos los sets en YouTube</a>
+      <a class="btn primary" href="https://www.youtube.com/@Portalmusictv" target="_blank" rel="noopener">Más sets en YouTube</a>
     </div>
   </section>
 
@@ -600,7 +613,7 @@
   <section class="tab-panel" id="panel-crew">
     <h2 class="sec">Portal Crew</h2>
     <div class="accent-bar"></div>
-    <p class="sec-sub">Los 5 integrantes de PORTAL. Stream los lunes 21:00 · sets los jueves 19:00.</p>
+    <p class="sec-sub">Los 5 integrantes de PORTAL. Stream en vivo todos los lunes 21:00.</p>
     <div class="grid cols3">
       <div class="card">
         <img class="crew-photo" src="https://i1.sndcdn.com/avatars-3TkPPnjxHEVKhDsy-Pn0WTQ-t500x500.jpg" alt="Enzo Paradiso" loading="lazy">
