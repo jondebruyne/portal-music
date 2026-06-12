@@ -149,18 +149,18 @@
 <!-- ============ NAV ============ -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo" onclick="showTab('home');return false">
+    <a href="#home" class="nav-logo">
       <!-- Logo real: guardar el archivo como portal-logo.png junto a este HTML -->
       <img src="portal-logo.png" alt="PORTAL" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <svg viewBox="0 0 540 126" style="display:none"><use href="#portal-logo"/></svg>
     </a>
     <div class="tabs" id="tabs">
-      <button class="tab-btn" data-tab="photos">Photos</button>
-      <button class="tab-btn" data-tab="sets">Sets</button>
-      <button class="tab-btn" data-tab="videos">Videos</button>
-      <button class="tab-btn" data-tab="crew">Portal Crew</button>
-      <button class="tab-btn" data-tab="contact">Contact</button>
-      <button class="tab-btn" data-tab="links">Links</button>
+      <a class="tab-btn" data-tab="photos" href="#photos">Photos</a>
+      <a class="tab-btn" data-tab="sets" href="#sets">Sets</a>
+      <a class="tab-btn" data-tab="videos" href="#videos">Videos</a>
+      <a class="tab-btn" data-tab="crew" href="#crew">Portal Crew</a>
+      <a class="tab-btn" data-tab="contact" href="#contact">Contact</a>
+      <a class="tab-btn" data-tab="links" href="#links">Links</a>
     </div>
   </div>
 </nav>
@@ -613,7 +613,7 @@
   <section class="tab-panel" id="panel-crew">
     <h2 class="sec">Portal Crew</h2>
     <div class="accent-bar"></div>
-    <p class="sec-sub">Los 5 integrantes de PORTAL. Stream en vivo todos los lunes 21:00.</p>
+    <p class="sec-sub">Los 5 integrantes de PORTAL.</p>
     <div class="grid cols3">
       <div class="card">
         <img class="crew-photo" src="https://i1.sndcdn.com/avatars-3TkPPnjxHEVKhDsy-Pn0WTQ-t500x500.jpg" alt="Enzo Paradiso" loading="lazy">
@@ -823,7 +823,7 @@
         </div>
         <div class="info-box">
           <h4>🤝 Marcas y sponsors</h4>
-          <p class="muted">Stream semanal + fiestas de hasta 700 personas. Pedinos el media kit.</p>
+          <p class="muted">¿Querés sponsorear a PORTAL? Completá el formulario o escribinos a portalmusicuru@gmail.com y te contamos las propuestas.</p>
         </div>
         <div class="info-box">
           <h4>📍 Montevideo, Uruguay</h4>
@@ -853,7 +853,7 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
         YouTube — Stream lunes 21:00
       </a>
-      <a class="link-btn" href="#" onclick="showTab('contact');return false">📩&nbsp; Mandanos tu demo</a>
+      <a class="link-btn" href="#contact">📩&nbsp; Mandanos tu demo</a>
     </div>
   </section>
 
@@ -886,7 +886,12 @@
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b.dataset.tab===name));
     window.scrollTo({top:0, behavior:'smooth'});
   }
-  document.querySelectorAll('.tab-btn').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+  function applyHash(){
+    const t = location.hash.replace('#','');
+    showTab(panels.includes(t) ? t : 'home');
+  }
+  window.addEventListener('hashchange', applyHash);
+  applyHash();
 
   function playDrive(id, el){
     el.innerHTML = '<iframe src="https://drive.google.com/file/d/' + id +
