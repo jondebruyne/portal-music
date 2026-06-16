@@ -102,8 +102,8 @@
 
     var back = document.createElement("a");
     back.className = "crew-back";
-    back.href = "./";
-    back.textContent = "← Volver a PORTAL";
+    back.href = (location.pathname || "./") + "#crew";
+    back.textContent = "← Volver a Portal Crew";
     view.appendChild(back);
 
     // Cabecera: foto + nombre + rol
@@ -228,6 +228,21 @@
     return true;
   }
 
+  function openCrewTab() {
+    var nav = document.querySelector('a[href="#crew"]');
+    if (nav) {
+      try {
+        nav.click();
+      } catch (e) {}
+    }
+    var panel = document.getElementById("panel-crew");
+    if (panel) {
+      setTimeout(function () {
+        panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 80);
+    }
+  }
+
   ready(function () {
     if (!document.getElementById("panel-crew")) return;
     injectStyles();
@@ -238,6 +253,9 @@
       profileMode(cards, member);
     } else {
       listMode(cards);
+      if (location.hash === "#crew") {
+        setTimeout(openCrewTab, 60);
+      }
     }
   });
 })();
