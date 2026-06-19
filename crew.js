@@ -62,7 +62,22 @@
       ".crew-prof-video .cap{color:var(--muted,#9b9ba3);font-size:.85rem;margin:8px 2px 0}",
       ".crew-prof-sets iframe{width:100%;border:0;border-radius:12px}",
       "@media(max-width:560px){.crew-prof-head{justify-content:center;text-align:center}",
-      ".crew-prof-meta{text-align:center}.crew-prof-links{justify-content:center}}"
+      ".crew-prof-meta{text-align:center}.crew-prof-links{justify-content:center}}",
+
+      /* === Arreglos UX móvil para el sitio === */
+      /* nav: que las 6 pestañas no desborden la pantalla, scroll horizontal */
+      "@media(max-width:640px){",
+      ".nav-inner{min-width:0}",
+      ".tabs{min-width:0;max-width:100%;overflow-x:auto;flex-wrap:nowrap;",
+      "-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}",
+      ".tabs::-webkit-scrollbar{display:none}",
+      ".tab-btn{flex:0 0 auto;white-space:nowrap}",
+      "}",
+      /* fallback de video para navegadores sin aspect-ratio (iOS Safari < 15) */
+      "@supports not (aspect-ratio: 16 / 9){",
+      ".video-wrap{position:relative;height:0;padding-bottom:56.25%}",
+      ".video-wrap>iframe{position:absolute;top:0;left:0;width:100%;height:100%}",
+      "}"
     ].join("");
     var st = document.createElement("style");
     st.id = "crew-profile-styles";
