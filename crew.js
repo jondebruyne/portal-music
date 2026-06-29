@@ -6,6 +6,29 @@
 (function () {
   "use strict";
 
+  /* Clips de "Videos de la noche": Google Drive no reproduce inline en iPhone
+     (queda en negro). En pantallas chicas/táctiles abrimos el video en Drive,
+     que funciona siempre; en desktop mantenemos el reproductor embebido. */
+  window.playDrive = function (id, el) {
+    var small =
+      (window.matchMedia && window.matchMedia("(max-width: 760px)").matches) ||
+      "ontouchstart" in window;
+    if (small) {
+      window.open(
+        "https://drive.google.com/file/d/" + id + "/view",
+        "_blank",
+        "noopener"
+      );
+      return;
+    }
+    el.innerHTML =
+      '<iframe src="https://drive.google.com/file/d/' +
+      id +
+      '/preview" allow="autoplay" allowfullscreen style="width:100%;height:100%;border:0" title="Video PORTAL"></iframe>';
+    el.classList.remove("tw-thumb");
+    el.onclick = null;
+  };
+
   function ready(fn) {
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", fn);
