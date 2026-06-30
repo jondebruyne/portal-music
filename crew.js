@@ -29,6 +29,83 @@
     el.onclick = null;
   };
 
+  /* Sección "Support": DJs reconocidos que pincharon tracks de los integrantes.
+     Cada item: {t:"youtube", id, title} o {t:"soundcloud", url, title}. */
+  var SUPPORT = {
+    enzo: [
+      { t: "youtube", id: "EjmnU_lrGKY", title: "Nora En Pure — Purified Radio 514" },
+      { t: "soundcloud", url: "https://soundcloud.com/cosmicgateofficial/wym-radio-episode-636", title: "Cosmic Gate — WYM Radio 636" }
+    ],
+    jon: [
+      { t: "youtube", id: "EjmnU_lrGKY", title: "Nora En Pure — Purified Radio 514" },
+      { t: "soundcloud", url: "https://soundcloud.com/cosmicgateofficial/wym-radio-episode-636", title: "Cosmic Gate — WYM Radio 636" }
+    ]
+    // maxov: pendiente de links
+  };
+
+  function scEmbed(url) {
+    return (
+      "https://w.soundcloud.com/player/?url=" +
+      encodeURIComponent(url) +
+      "&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true"
+    );
+  }
+
+  function addSupportToCard(card, slug) {
+    var sup = SUPPORT[slug];
+    if (!sup || !sup.length) return;
+    if (card.querySelector(".crew-support-panel")) return;
+    var body = card.querySelector(".body") || card;
+
+    var row = document.createElement("div");
+    row.className = "mini-row";
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "mini-btn toggle";
+    btn.textContent = "★ Support";
+    row.appendChild(btn);
+    body.appendChild(row);
+
+    var panel = document.createElement("div");
+    panel.className = "crew-support-panel";
+    panel.style.display = "none";
+    sup.forEach(function (it) {
+      if (it.t === "youtube") {
+        var w = document.createElement("div");
+        w.className = "video-wrap";
+        w.style.marginBottom = "6px";
+        w.innerHTML =
+          '<iframe data-src="https://www.youtube.com/embed/' +
+          it.id +
+          '" loading="lazy" allowfullscreen style="width:100%;height:100%;border:0"></iframe>';
+        panel.appendChild(w);
+      } else {
+        var sc = document.createElement("iframe");
+        sc.setAttribute("data-src", scEmbed(it.url));
+        sc.setAttribute("height", "166");
+        sc.setAttribute("loading", "lazy");
+        sc.style.cssText = "width:100%;border:0;border-radius:10px";
+        panel.appendChild(sc);
+      }
+      var cap = document.createElement("p");
+      cap.className = "muted";
+      cap.style.cssText = "font-size:.8rem;margin:6px 0 14px";
+      cap.textContent = it.title;
+      panel.appendChild(cap);
+    });
+    card.appendChild(panel);
+
+    btn.addEventListener("click", function () {
+      var open = panel.style.display === "block";
+      panel.style.display = open ? "none" : "block";
+      if (!open) {
+        [].slice.call(panel.querySelectorAll("iframe[data-src]")).forEach(function (f) {
+          if (!f.getAttribute("src")) f.setAttribute("src", f.getAttribute("data-src"));
+        });
+      }
+    });
+  }
+
   function ready(fn) {
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", fn);
@@ -84,6 +161,9 @@
       ".crew-prof-video .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}",
       ".crew-prof-video .cap{color:var(--muted,#9b9ba3);font-size:.85rem;margin:8px 2px 0}",
       ".crew-prof-sets iframe{width:100%;border:0;border-radius:12px}",
+      ".crew-prof-sc{width:100%;border:0;border-radius:12px;margin-bottom:2px}",
+      ".crew-prof-section>.cap{color:var(--muted,#9b9ba3);font-size:.85rem;margin:6px 2px 20px}",
+      ".crew-support-panel{margin-top:6px}",
       "@media(max-width:560px){.crew-prof-head{justify-content:center;text-align:center}",
       ".crew-prof-meta{text-align:center}.crew-prof-links{justify-content:center}}",
 
@@ -117,6 +197,7 @@
       if (card.querySelector(".crew-profile-link")) return;
       var slug = slugOf(card);
       if (!slug) return;
+      addSupportToCard(card, slug);
       var body = card.querySelector(".body") || card;
       var a = document.createElement("a");
       a.className = "crew-profile-link";
@@ -131,6 +212,7 @@
   function buildProfile(card) {
     var name = (card.querySelector("h4") || {}).textContent || "PORTAL";
     name = name.trim();
+    var slug = slugOf(card);
     var ps = card.querySelectorAll(".body > p.muted");
     var role = ps[0] ? ps[0].innerHTML : "";
     var bio = ps[1] ? ps[1].innerHTML : "";
@@ -236,6 +318,43 @@
         });
         view.appendChild(vSec);
       }
+    }
+
+    // Support (DJs que les dieron play)
+    var sup = SUPPORT[slug];
+    if (sup && sup.length) {
+      var supSec = document.createElement("div");
+      supSec.className = "crew-prof-section";
+      supSec.innerHTML = "<h2>Nos dieron support</h2>";
+      sup.forEach(function (it) {
+        if (it.t === "youtube") {
+          var item = document.createElement("div");
+          item.className = "crew-prof-video";
+          var vid = document.createElement("div");
+          vid.className = "vid";
+          vid.innerHTML =
+            '<iframe src="https://www.youtube.com/embed/' +
+            it.id +
+            '" allowfullscreen></iframe>';
+          item.appendChild(vid);
+          var c = document.createElement("p");
+          c.className = "cap";
+          c.textContent = it.title;
+          item.appendChild(c);
+          supSec.appendChild(item);
+        } else {
+          var sc = document.createElement("iframe");
+          sc.className = "crew-prof-sc";
+          sc.setAttribute("src", scEmbed(it.url));
+          sc.setAttribute("height", "166");
+          supSec.appendChild(sc);
+          var c2 = document.createElement("p");
+          c2.className = "cap";
+          c2.textContent = it.title;
+          supSec.appendChild(c2);
+        }
+      });
+      view.appendChild(supSec);
     }
 
     return { view: view, name: name };
