@@ -34,7 +34,10 @@
   var SUPPORT = {
     enzo: [
       { t: "youtube", id: "EjmnU_lrGKY", title: "Nora En Pure — Purified Radio 514" },
-      { t: "soundcloud", url: "https://soundcloud.com/cosmicgateofficial/wym-radio-episode-636", title: "Cosmic Gate — WYM Radio 636" }
+      { t: "soundcloud", url: "https://soundcloud.com/cosmicgateofficial/wym-radio-episode-636", title: "Cosmic Gate — WYM Radio 636" },
+      { t: "soundcloud", url: "https://soundcloud.com/djpaulthomas/paul-thomas-presents-uv-radio-335-guest-mix-from-abaze", title: "Paul Thomas — UV Radio 335" },
+      { t: "soundcloud", url: "https://soundcloud.com/djpaulthomas/paul-thomas-presents-uv-radio-338", title: "Paul Thomas — UV Radio 338" },
+      { t: "soundcloud", url: "https://soundcloud.com/djpaulthomas/paul-thomas-presents-uv-radio-328-includes-30-mix-guest-mix-from-paul-arcane", title: "Paul Thomas — UV Radio 328" }
     ],
     jon: [
       { t: "youtube", id: "EjmnU_lrGKY", title: "Nora En Pure — Purified Radio 514" },
