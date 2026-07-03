@@ -608,10 +608,18 @@
           <div class="mini-row">
             <button class="mini-btn toggle" onclick="toggleCrew('enzo','sets')">▶ Sets</button>
             <button class="mini-btn toggle" onclick="toggleCrew('enzo','videos')">▶ Videos</button>
+            <button class="mini-btn toggle" onclick="toggleCrew('enzo','remixes')">▶ Remixes</button>
           </div>
         </div>
         <div class="crew-expand" id="crew-enzo-sets">
           <iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/282966758&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="320" style="width:100%;border:0" loading="lazy" title="Sets de Enzo Paradiso en SoundCloud"></iframe>
+        </div>
+        <div class="crew-expand" id="crew-enzo-remixes">
+          <iframe data-src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fenzoparadiso-dj%2Ffree-download-planet-funk-tightrope-artist-enzo-paradiso-jon-debruyne-unofficial-remix&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="166" style="width:100%;border:0;margin-bottom:10px" loading="lazy" title="Planet Funk - Tightrope (Enzo Paradiso & Jon DeBruyne Unofficial Remix)"></iframe>
+          <iframe data-src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fphalabel%2Ffree-downloadwhomadewho-ry-x-love-will-save-me-enzo-paradiso-felipe-gurascier-unofficial-remix&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="166" style="width:100%;border:0;margin-bottom:10px" loading="lazy" title="WhoMadeWho, RY X - Love Will Save Me (Enzo Paradiso & Felipe Gurascier Unofficial Remix)"></iframe>
+          <iframe data-src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fthemangoalley%2Fa275-not-demure-waving-but-drowning-juan-buitrago-enzo-paradiso-remix&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="166" style="width:100%;border:0;margin-bottom:10px" loading="lazy" title="NOT DEMURE - Waving But Drowning (Juan Buitrago & Enzo Paradiso Remix) [Mango Alley]"></iframe>
+          <iframe data-src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fbalkan-connection%2Fdr-green-dinil-medicated-enzo-paradiso-remix&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="166" style="width:100%;border:0;margin-bottom:10px" loading="lazy" title="Dr Green & Dinil - Medicated (Enzo Paradiso Remix) [Balkan Connection]"></iframe>
+          <iframe data-src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmanual-music%2Fgovinda-arg-gonzalo-sacc-1&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="166" style="width:100%;border:0;margin-bottom:10px" loading="lazy" title="Govinda - Standing (Diego Acosta & Enzo Paradiso Remix) [Manual Music]"></iframe>
         </div>
         <div class="crew-expand" id="crew-enzo-videos"><div class="video-wrap" style="margin-bottom:6px"><iframe data-src="https://www.youtube.com/embed/nFRzPsb8UaE" title="FRESCO 028 | Enzo Paradiso b2b Isma Pereyra @ Don Juan" loading="lazy" allowfullscreen style="width:100%;height:100%;border:0"></iframe></div><p class="muted" style="font-size:.8rem;margin-bottom:14px">FRESCO 028 | Enzo Paradiso b2b Isma Pereyra @ Don Juan</p>
           <div class="video-wrap" style="margin-bottom:6px"><iframe data-src="https://www.youtube.com/embed/6p2Gq3uq6sM" title="Enzo Paradiso | RISE Sessions [Progressive, Melodic House & Techno]" loading="lazy" allowfullscreen style="width:100%;height:100%;border:0"></iframe></div>
@@ -872,8 +880,7 @@
   }
 
   function toggleCrew(id, kind){
-    const other = kind === 'sets' ? 'videos' : 'sets';
-    document.getElementById('crew-'+id+'-'+other).style.display = 'none';
+    ['videos','sets','remixes'].forEach(function(k){ if(k!==kind){ var o=document.getElementById('crew-'+id+'-'+k); if(o) o.style.display='none'; } });
     const el = document.getElementById('crew-'+id+'-'+kind);
     const open = el.style.display === 'block';
     el.style.display = open ? 'none' : 'block';
