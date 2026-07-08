@@ -323,6 +323,61 @@
       }
     }
 
+    // Remixes (YouTube o SoundCloud)
+    var rmxPanel = card.querySelector('[id$="-remixes"].crew-expand');
+    if (rmxPanel) {
+      var rSec = document.createElement("div");
+      rSec.className = "crew-prof-section";
+      rSec.innerHTML = "<h2>Remixes</h2>";
+      var added = 0;
+      [].slice.call(rmxPanel.children).forEach(function (ch) {
+        if (ch.classList && ch.classList.contains("video-wrap")) {
+          var yif = ch.querySelector("iframe");
+          if (!yif) return;
+          var cap = "";
+          var sib = ch.nextElementSibling;
+          if (sib && sib.tagName === "P") cap = sib.textContent.trim();
+          if (!cap) cap = yif.getAttribute("title") || "";
+          var item = document.createElement("div");
+          item.className = "crew-prof-video";
+          var vid = document.createElement("div");
+          vid.className = "vid";
+          var nf = yif.cloneNode(true);
+          var src = nf.getAttribute("src") || nf.getAttribute("data-src");
+          if (src) nf.setAttribute("src", src);
+          nf.removeAttribute("data-src");
+          nf.setAttribute("allowfullscreen", "");
+          vid.appendChild(nf);
+          item.appendChild(vid);
+          if (cap) {
+            var c = document.createElement("p");
+            c.className = "cap";
+            c.textContent = cap;
+            item.appendChild(c);
+          }
+          rSec.appendChild(item);
+          added++;
+        } else if (ch.tagName === "IFRAME") {
+          var nsc = ch.cloneNode(true);
+          nsc.className = "crew-prof-sc";
+          var ssrc = nsc.getAttribute("src") || nsc.getAttribute("data-src");
+          if (ssrc) nsc.setAttribute("src", ssrc);
+          nsc.removeAttribute("data-src");
+          if (!nsc.getAttribute("height")) nsc.setAttribute("height", "166");
+          rSec.appendChild(nsc);
+          var t = ch.getAttribute("title");
+          if (t) {
+            var c2 = document.createElement("p");
+            c2.className = "cap";
+            c2.textContent = t;
+            rSec.appendChild(c2);
+          }
+          added++;
+        }
+      });
+      if (added) view.appendChild(rSec);
+    }
+
     // Support (DJs que les dieron play)
     var sup = SUPPORT[slug];
     if (sup && sup.length) {
