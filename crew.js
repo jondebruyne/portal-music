@@ -33,6 +33,7 @@
      Cada item: {t:"youtube", id, title} o {t:"soundcloud", url, title}. */
   var SUPPORT = {
     enzo: [
+      { t: "link", url: "https://www.beatport.com/chart/best-new-progressive-house-2026july/895644", title: "Beatport — Best New Progressive House 2026: July · Unravel" },
       { t: "youtube", id: "EjmnU_lrGKY", title: "Nora En Pure — Purified Radio 514" },
       { t: "soundcloud", url: "https://soundcloud.com/cosmicgateofficial/wym-radio-episode-636", title: "Cosmic Gate — WYM Radio 636" },
       { t: "soundcloud", url: "https://soundcloud.com/djpaulthomas/paul-thomas-presents-uv-radio-335-guest-mix-from-abaze", title: "Paul Thomas — UV Radio 335" },
@@ -40,6 +41,7 @@
       { t: "soundcloud", url: "https://soundcloud.com/djpaulthomas/paul-thomas-presents-uv-radio-328-includes-30-mix-guest-mix-from-paul-arcane", title: "Paul Thomas — UV Radio 328" }
     ],
     jon: [
+      { t: "link", url: "https://www.beatport.com/chart/best-new-progressive-house-2026july/895644", title: "Beatport — Best New Progressive House 2026: July · Unravel" },
       { t: "youtube", id: "EjmnU_lrGKY", title: "Nora En Pure — Purified Radio 514" },
       { t: "soundcloud", url: "https://soundcloud.com/cosmicgateofficial/wym-radio-episode-636", title: "Cosmic Gate — WYM Radio 636" }
     ]
@@ -73,7 +75,16 @@
     panel.className = "crew-support-panel";
     panel.style.display = "none";
     sup.forEach(function (it) {
-      if (it.t === "youtube") {
+      if (it.t === "link") {
+        var a = document.createElement("a");
+        a.className = "mini-btn";
+        a.href = it.url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = it.title;
+        panel.appendChild(a);
+        return;
+      } else if (it.t === "youtube") {
         var w = document.createElement("div");
         w.className = "video-wrap";
         w.style.marginBottom = "6px";
@@ -385,7 +396,14 @@
       supSec.className = "crew-prof-section";
       supSec.innerHTML = "<h2>Nos dieron support</h2>";
       sup.forEach(function (it) {
-        if (it.t === "youtube") {
+        if (it.t === "link") {
+          var a = document.createElement("a");
+          a.href = it.url;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.textContent = it.title;
+          supSec.appendChild(a);
+        } else if (it.t === "youtube") {
           var item = document.createElement("div");
           item.className = "crew-prof-video";
           var vid = document.createElement("div");
