@@ -38,12 +38,18 @@
       { t: "soundcloud", url: "https://soundcloud.com/cosmicgateofficial/wym-radio-episode-636", title: "Cosmic Gate — WYM Radio 636" },
       { t: "soundcloud", url: "https://soundcloud.com/djpaulthomas/paul-thomas-presents-uv-radio-335-guest-mix-from-abaze", title: "Paul Thomas — UV Radio 335" },
       { t: "soundcloud", url: "https://soundcloud.com/djpaulthomas/paul-thomas-presents-uv-radio-338", title: "Paul Thomas — UV Radio 338" },
-      { t: "soundcloud", url: "https://soundcloud.com/djpaulthomas/paul-thomas-presents-uv-radio-328-includes-30-mix-guest-mix-from-paul-arcane", title: "Paul Thomas — UV Radio 328" }
+      { t: "soundcloud", url: "https://soundcloud.com/djpaulthomas/paul-thomas-presents-uv-radio-328-includes-30-mix-guest-mix-from-paul-arcane", title: "Paul Thomas — UV Radio 328" },
+      { t: "link", url: "https://soundcloud.com/helkah/helkah-presents-self-6", title: "HELKAH · Self Reflections 88 — Resplandor" },
+      { t: "link", url: "https://soundcloud.com/mi-lo_official/mi-lo-proton-radio-featured", title: "Mi-Lo · Proton Radio Featured Artist — Occasus" },
+      { t: "link", url: "https://soundcloud.com/j-b-850893109/spring-2026-progressive-house", title: "Just King · Spring 2026 Set — Occasus" }
     ],
     jon: [
       { t: "link", url: "https://www.beatport.com/chart/best-new-progressive-house-2026july/895644", title: "Beatport — Best New Progressive House 2026: July · Unravel" },
       { t: "youtube", id: "EjmnU_lrGKY", title: "Nora En Pure — Purified Radio 514" },
-      { t: "soundcloud", url: "https://soundcloud.com/cosmicgateofficial/wym-radio-episode-636", title: "Cosmic Gate — WYM Radio 636" }
+      { t: "soundcloud", url: "https://soundcloud.com/cosmicgateofficial/wym-radio-episode-636", title: "Cosmic Gate — WYM Radio 636" },
+      { t: "link", url: "https://soundcloud.com/helkah/helkah-presents-self-6", title: "HELKAH · Self Reflections 88 — Resplandor" },
+      { t: "link", url: "https://soundcloud.com/mi-lo_official/mi-lo-proton-radio-featured", title: "Mi-Lo · Proton Radio Featured Artist — Occasus" },
+      { t: "link", url: "https://soundcloud.com/j-b-850893109/spring-2026-progressive-house", title: "Just King · Spring 2026 Set — Occasus" }
     ]
     // maxov: pendiente de links
   };
@@ -384,9 +390,35 @@
             rSec.appendChild(c2);
           }
           added++;
+        } else if (ch.tagName === "A") {
+          var rlink = ch.cloneNode(true);
+          rlink.className = "crew-profile-link";
+          rlink.target = "_blank";
+          rlink.rel = "noopener";
+          rSec.appendChild(rlink);
+          added++;
         }
       });
       if (added) view.appendChild(rSec);
+    }
+
+    // Lanzamientos
+    var relPanel = card.querySelector('[id$="-releases"].crew-expand');
+    if (relPanel) {
+      var releaseLinks = relPanel.querySelectorAll("a[href]");
+      if (releaseLinks.length) {
+        var relSec = document.createElement("div");
+        relSec.className = "crew-prof-section";
+        relSec.innerHTML = "<h2>Lanzamientos</h2>";
+        [].slice.call(releaseLinks).forEach(function (link) {
+          var r = link.cloneNode(true);
+          r.className = "crew-profile-link";
+          r.target = "_blank";
+          r.rel = "noopener";
+          relSec.appendChild(r);
+        });
+        view.appendChild(relSec);
+      }
     }
 
     // Support (DJs que les dieron play)

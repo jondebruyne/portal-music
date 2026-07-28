@@ -392,6 +392,10 @@
     <p class="sec-sub">PORTAL Stream: todos los lunes 21:00 en vivo — DJs y productores uruguayos + feedback de demos.</p>
     <div class="grid cols3">
       <div class="card" style="grid-column:1/-1;max-width:760px;margin:auto;width:100%">
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/O5ibSUnELCA" title="Portal Stream 62 — Live Music Production w/ Manu Pena" loading="lazy" allowfullscreen></iframe></div>
+        <div class="body"><h4>62 | Live Music Production w/ Manu Pena</h4><p class="muted">Portal Stream · producción musical en vivo</p></div>
+      </div>
+      <div class="card" style="grid-column:1/-1;max-width:760px;margin:auto;width:100%">
         <div class="video-wrap"><iframe src="https://www.youtube.com/embed/I83L6y0Ga_4" title="Portal Stream 61 — Flor Uria, Nani Barberán y Xavi" loading="lazy" allowfullscreen></iframe></div>
         <div class="body"><h4>61 | w/ Flor Uria, Nani Barberán y Xavi</h4><p class="muted">Portal Stream · invitados + feedback de demos en vivo</p></div>
       </div>
@@ -619,7 +623,12 @@
             <button class="mini-btn toggle" onclick="toggleCrew('enzo','sets')">▶ Sets</button>
             <button class="mini-btn toggle" onclick="toggleCrew('enzo','videos')">▶ Videos</button>
             <button class="mini-btn toggle" onclick="toggleCrew('enzo','remixes')">▶ Remixes</button>
+            <button class="mini-btn toggle" onclick="toggleCrew('enzo','releases')">▶ Lanzamientos</button>
           </div>
+        </div>
+        <div class="crew-expand" id="crew-enzo-releases">
+          <p class="muted" style="font-size:.82rem;margin:0 0 10px">Novedad · 10 de julio de 2026</p>
+          <a class="mini-btn" href="https://www.beatport.com/track/neter/29179847" target="_blank" rel="noopener">Neter — Enzo Paradiso &amp; JonDeBruyne · Nova Mova</a>
         </div>
         <div class="crew-expand" id="crew-enzo-sets">
           <iframe data-src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fenzoparadiso-dj%2Fperspective-episode-011&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="166" style="width:100%;border:0;margin-bottom:10px" loading="lazy" title="PERSPECTIVE . Episode 011 . — Enzo Paradiso"></iframe>
@@ -701,6 +710,8 @@
           <iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/833088433&color=%237c3aed&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=false" height="320" style="width:100%;border:0" loading="lazy" title="Sets de Maxov en SoundCloud"></iframe>
         </div>
         <div class="crew-expand" id="crew-maxov-videos">
+          <div class="video-wrap" style="margin-bottom:6px"><iframe data-src="https://www.youtube.com/embed/mH1kkCKNJFU" title="Maxov — Melodic Techno Club #008" loading="lazy" allowfullscreen style="width:100%;height:100%;border:0"></iframe></div>
+          <p class="muted" style="font-size:.8rem;margin-bottom:14px">Maxov — Melodic Techno Club #008</p>
           <div class="video-wrap" style="margin-bottom:6px"><iframe data-src="https://www.youtube.com/embed/G3ehybCE2jY" title="Maxov | RISE MUSIC Sessions [Melodic House & Techno]" loading="lazy" allowfullscreen style="width:100%;height:100%;border:0"></iframe></div>
           <p class="muted" style="font-size:.8rem;margin-bottom:14px">Maxov | RISE MUSIC Sessions [Melodic House & Techno]</p>
           <div class="video-wrap" style="margin-bottom:6px"><iframe data-src="https://www.youtube.com/embed/sqYd7F5HwI8" title="FRESCO Episodio 025 | Maxov @ Don Juan" loading="lazy" allowfullscreen style="width:100%;height:100%;border:0"></iframe></div>
@@ -738,9 +749,15 @@
           </div>
           <div class="mini-row">
             <button class="mini-btn toggle" onclick="toggleCrew('jon','remixes')">▶ Remixes</button>
+            <button class="mini-btn toggle" onclick="toggleCrew('jon','releases')">▶ Lanzamientos</button>
           </div>
         </div>
+        <div class="crew-expand" id="crew-jon-releases">
+          <p class="muted" style="font-size:.82rem;margin:0 0 10px">Novedad · 10 de julio de 2026</p>
+          <a class="mini-btn" href="https://www.beatport.com/track/neter/29179847" target="_blank" rel="noopener">Neter — Enzo Paradiso &amp; JonDeBruyne · Nova Mova</a>
+        </div>
         <div class="crew-expand" id="crew-jon-remixes">
+          <a class="mini-btn remix-link" href="https://futureavenuelabel.bandcamp.com/track/aura-noctis-paul-boychev-remix" target="_blank" rel="noopener">Aura Noctis (Paul Boychev Remix) — Future Avenue</a>
           <div class="video-wrap" style="margin-bottom:6px"><iframe data-src="https://www.youtube.com/embed/6Byu7FmDcxw" title="Enzo Paradiso & JonDeBruyne — Unravel [Polyptych]" loading="lazy" allowfullscreen style="width:100%;height:100%;border:0"></iframe></div>
           <p class="muted" style="font-size:.8rem;margin-bottom:14px">Enzo Paradiso & JonDeBruyne — Unravel [Polyptych]</p>
           <div class="video-wrap" style="margin-bottom:6px"><iframe data-src="https://www.youtube.com/embed/IPkaXTkEiDs" title="Premiere: Enzo Paradiso & JonDeBruyne — Unravel (Michael A Remix) [Polyptych]" loading="lazy" allowfullscreen style="width:100%;height:100%;border:0"></iframe></div>
@@ -927,7 +944,7 @@
   }
 
   function toggleCrew(id, kind){
-    ['videos','sets','remixes'].forEach(function(k){ if(k!==kind){ var o=document.getElementById('crew-'+id+'-'+k); if(o) o.style.display='none'; } });
+    ['videos','sets','remixes','releases'].forEach(function(k){ if(k!==kind){ var o=document.getElementById('crew-'+id+'-'+k); if(o) o.style.display='none'; } });
     const el = document.getElementById('crew-'+id+'-'+kind);
     const open = el.style.display === 'block';
     el.style.display = open ? 'none' : 'block';
@@ -946,5 +963,5 @@
     window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
   }
 </script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "efcdfb3f7fc643de8fc699531fc7021d"}'></script><script defer src="crew.js?v=20260714"></script></body>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "efcdfb3f7fc643de8fc699531fc7021d"}'></script><script defer src="crew.js?v=20260728"></script></body>
 </html>
