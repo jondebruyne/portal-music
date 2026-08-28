@@ -13,6 +13,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;line-height:1.6}
+  body.event-flyer-active{background-color:#05030b;background-image:linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.88)),url('portal-16-10-26-flyer.jpeg');background-position:center top;background-size:cover;background-attachment:fixed}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
 
@@ -36,7 +37,7 @@
     radial-gradient(ellipse 40% 30% at 80% 100%, rgba(124,58,237,.10), transparent 70%);pointer-events:none}
   .hero-logo svg{width:min(560px,86vw);height:auto;display:block;margin:auto}
   .hero-tag{margin-top:26px;color:var(--muted);letter-spacing:.35em;text-transform:uppercase;font-size:.8rem}
-  .hero-cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .hero-cta{margin-top:36px;display:flex;gap:14px;flex-direction:column;align-items:center}
   .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:999px;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);transition:.2s;cursor:pointer;background:var(--card)}
   .btn:hover{border-color:var(--accent2);transform:translateY(-2px)}
   .btn.primary{background:var(--accent);border-color:var(--accent)}
@@ -56,6 +57,19 @@
   .pill{display:inline-block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;background:var(--accent);padding:4px 12px;border-radius:999px;margin-bottom:14px}
   .event-feature h3{font-size:2rem;line-height:1.15;margin-bottom:8px}
   .event-meta{color:var(--muted);margin-bottom:20px}
+  .event-panel{padding-bottom:16px}
+  .event-hero{position:relative;min-height:min(76vh,860px);overflow:hidden;border:1px solid var(--accent);border-radius:18px;background:#05030b;box-shadow:0 18px 60px rgba(64,24,150,.28);margin-bottom:22px}
+  .event-flyer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center}
+  .event-details{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;margin:0 0 46px}
+  .event-info{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+  .event-info span{display:inline-flex;align-items:center;padding:8px 13px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(0,0,0,.42);color:#fff;font-size:.78rem;letter-spacing:.06em}
+  .event-ticket{width:max-content}
+  .lineup-grid{margin-top:26px}
+  .lineup-card{display:flex;flex-direction:column;background:rgba(18,18,20,.95)}
+  .lineup-card.featured{border-color:var(--accent2)}
+  .lineup-photo{aspect-ratio:1/1;width:100%;object-fit:cover;background:#0b0b0d}
+  .lineup-card h3{font-size:1.3rem;margin-bottom:5px}
+  .lineup-card .mini-row{margin-top:14px}
   .grid{display:grid;gap:18px}
   .grid.cols3{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.2s}
@@ -113,6 +127,9 @@
     main{padding:0 14px 60px}
     .photo-grid{grid-template-columns:repeat(2,1fr)}
     .event-feature{padding:22px}
+    body.event-flyer-active{background-attachment:scroll}
+    .event-hero{min-height:680px;margin-bottom:20px}
+    .event-details{margin-bottom:34px}
     .btn{padding:11px 20px;font-size:.78rem}
     .card .body{padding:14px}
   }
@@ -155,6 +172,7 @@
       <svg viewBox="0 0 540 126" style="display:none"><use href="#portal-logo"/></svg>
     </a>
     <div class="tabs" id="tabs">
+      <a class="tab-btn" data-tab="proximo-evento" href="#proximo-evento">Próximo evento</a>
       <a class="tab-btn" data-tab="photos" href="#photos">Photos</a>
       
       <a class="tab-btn" data-tab="videos" href="#videos">Videos</a>
@@ -174,12 +192,92 @@
   </div>
   <p class="hero-tag">Música electrónica · Montevideo, Uruguay</p>
   <div class="hero-cta">
-    
+    <a class="btn primary" href="#proximo-evento">Próximo evento · 16 de octubre</a>
     <a class="btn" href="https://www.youtube.com/@Portalmusictv" target="_blank" rel="noopener">Stream — Lunes 21:00</a>
   </div>
 </header>
 
 <main>
+
+  <!-- ============ PRÓXIMO EVENTO ============ -->
+  <section class="tab-panel event-panel" id="panel-proximo-evento">
+    <div class="event-hero">
+      <img class="event-flyer" src="portal-16-10-26-flyer.jpeg" alt="Flyer de PORTAL del viernes 16 de octubre en Lotus WTC" fetchpriority="high">
+    </div>
+    <div class="event-details">
+      <div class="event-info" aria-label="Información del evento">
+        <span>Viernes 16 de octubre</span>
+        <span>Lotus WTC</span>
+        <span>Puertas 23:30</span>
+      </div>
+      <a class="btn primary event-ticket" href="https://redtickets.uy/eventoprivado/32831/Portal16deOctubre-538883/" target="_blank" rel="noopener">Entradas</a>
+    </div>
+
+    <h2 class="sec">Información del line-up</h2>
+    <div class="accent-bar"></div>
+    <p class="sec-sub">Conocé a los artistas que van a ser parte de PORTAL.</p>
+    <div class="grid cols3 lineup-grid" id="event-lineup">
+      <article class="card lineup-card featured">
+        <img class="lineup-photo" src="https://i1.sndcdn.com/avatars-Zhy2cNGKlf1KRTQs-9AenaQ-large.jpg" alt="Mayro" loading="lazy">
+        <div class="body">
+          <p class="muted">Headliner · Anjunadeep · Traful</p>
+          <h3>Mayro</h3>
+          <div class="mini-row">
+            <a class="mini-btn" href="https://www.instagram.com/mayromusic/" target="_blank" rel="noopener">Instagram</a>
+            <a class="mini-btn" href="https://soundcloud.com/mayromusic" target="_blank" rel="noopener">SoundCloud</a>
+            <a class="mini-btn" href="https://open.spotify.com/artist/291rTuAllKQRkUBvkM7dFY" target="_blank" rel="noopener">Spotify</a>
+          </div>
+        </div>
+      </article>
+      <article class="card lineup-card">
+        <img class="lineup-photo" src="https://i1.sndcdn.com/avatars-cdqQaxAazMQMLivU-ZuLK8Q-large.jpg" alt="Elliott (UY)" loading="lazy">
+        <div class="body">
+          <p class="muted">DJ y productor · Uruguay</p>
+          <h3>Elliott (UY)</h3>
+          <div class="mini-row">
+            <a class="mini-btn" href="https://www.instagram.com/elliott.uy/" target="_blank" rel="noopener">Instagram</a>
+            <a class="mini-btn" href="https://soundcloud.com/lucas-copello-893115897" target="_blank" rel="noopener">SoundCloud</a>
+            <a class="mini-btn" href="https://open.spotify.com/artist/1bnv9UgdBw5VUMbziMIi3i" target="_blank" rel="noopener">Spotify</a>
+          </div>
+        </div>
+      </article>
+      <article class="card lineup-card">
+        <img class="lineup-photo" src="https://i1.sndcdn.com/avatars-qLO3svu0i1CYOVUq-oHQuzw-large.jpg" alt="Christian Scorza" loading="lazy">
+        <div class="body">
+          <p class="muted">DJ y productor · Montevideo</p>
+          <h3>Christian Scorza</h3>
+          <div class="mini-row">
+            <a class="mini-btn" href="https://www.instagram.com/christianscorza/" target="_blank" rel="noopener">Instagram</a>
+            <a class="mini-btn" href="https://soundcloud.com/christianscorza" target="_blank" rel="noopener">SoundCloud</a>
+            <a class="mini-btn" href="https://open.spotify.com/artist/40mmxqnxxXktDAjF7flI7B?si=dvxL5mRkRvq8IN-ERuVXLQ" target="_blank" rel="noopener">Spotify</a>
+          </div>
+        </div>
+      </article>
+      <article class="card lineup-card">
+        <img class="lineup-photo" src="https://i1.sndcdn.com/avatars-CQ2jJDYzcfmSBRYo-zBz4PQ-large.jpg" alt="Zardo" loading="lazy">
+        <div class="body">
+          <p class="muted">DJ y productor · Uruguay</p>
+          <h3>Zardo</h3>
+          <div class="mini-row">
+            <a class="mini-btn" href="https://www.instagram.com/zardo.music/" target="_blank" rel="noopener">Instagram</a>
+            <a class="mini-btn" href="https://soundcloud.com/djzardo" target="_blank" rel="noopener">SoundCloud</a>
+          </div>
+        </div>
+      </article>
+      <article class="card lineup-card">
+        <img class="lineup-photo" src="https://i1.sndcdn.com/avatars-3TkPPnjxHEVKhDsy-Pn0WTQ-t500x500.jpg" alt="Enzo Paradiso" loading="lazy">
+        <div class="body">
+          <p class="muted">DJ y productor · PORTAL</p>
+          <h3>Enzo Paradiso</h3>
+          <div class="mini-row">
+            <a class="mini-btn" href="https://www.instagram.com/enzoparadisouy/" target="_blank" rel="noopener">Instagram</a>
+            <a class="mini-btn" href="https://soundcloud.com/enzoparadiso-dj" target="_blank" rel="noopener">SoundCloud</a>
+            <a class="mini-btn" href="https://open.spotify.com/artist/46tgTjuJUCmqTRItQwgCEO" target="_blank" rel="noopener">Spotify</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 
   <!-- ============ PHOTOS ============ -->
   <section class="tab-panel" id="panel-photos">
@@ -941,7 +1039,15 @@
 </footer>
 
 <script>
-  const panels = ['home','photos','sets','videos','crew','contact','links'];
+  const flyerExpiresAt = new Date('2026-10-18T00:00:00-03:00').getTime();
+  function applyEventFlyer(){
+    document.body.classList.toggle('event-flyer-active', Date.now() < flyerExpiresAt);
+  }
+  applyEventFlyer();
+  const flyerExpiryDelay = flyerExpiresAt - Date.now();
+  if (flyerExpiryDelay > 0) window.setTimeout(applyEventFlyer, flyerExpiryDelay + 100);
+
+  const panels = ['home','proximo-evento','photos','sets','videos','crew','contact','links'];
   function showTab(name){
     panels.forEach(p=>{
       const el = document.getElementById('panel-'+p);
