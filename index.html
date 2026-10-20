@@ -76,6 +76,7 @@
   .grid.cols3{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.2s}
   .card:hover{border-color:var(--accent2);transform:translateY(-3px)}
+  .video-card-wide{grid-column:1/-1;max-width:760px;margin:auto;width:100%}
   .card .body{padding:18px}
   .card h4{margin-bottom:4px}
   .card .muted{color:var(--muted);font-size:.88rem}
@@ -491,7 +492,7 @@
     <div class="accent-bar"></div>
     <p class="sec-sub">PORTAL Stream: todos los lunes 21:00 en vivo — DJs y productores uruguayos + feedback de demos.</p>
     <div class="grid cols3">
-      <div class="card" style="grid-column:1/-1;max-width:760px;margin:auto;width:100%">
+      <div class="card video-card-wide">
         <div class="video-wrap"><iframe src="https://www.youtube.com/embed/BkQWl9YMcG8" title="Portal Stream 73 — Post Fiesta | Demo &amp; Feedback w/ Jhona Ghersi" loading="lazy" allowfullscreen></iframe></div>
         <div class="body"><h4>73 | Post Fiesta | Demo &amp; Feedback w/ Jhona Ghersi</h4><p class="muted">Portal Stream · 19 de octubre de 2026 · <a href="https://www.youtube.com/watch?v=BkQWl9YMcG8" target="_blank" rel="noopener">Ver en YouTube ↗</a></p></div>
       </div>
