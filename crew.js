@@ -71,6 +71,9 @@
   function addSupportToCard(card, slug) {
     var sup = SUPPORT[slug];
     if (!sup || !sup.length) return;
+    // Las tarjetas actuales ya traen un panel estático de support. Evitar
+    // inyectar un segundo botón/panel con los mismos enlaces en la vista normal.
+    if (card.querySelector('[id$="-support"].crew-expand')) return;
     if (card.querySelector(".crew-support-panel")) return;
     var body = card.querySelector(".body") || card;
 
