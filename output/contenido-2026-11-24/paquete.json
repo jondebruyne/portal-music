@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-24",
+  "status": "ready_copy_not_published",
+  "brand": {
+    "audience": "Productores y oyentes de electrónica uruguaya; bookings y sponsors tienen recorridos separados.",
+    "promise": "Producción, música y feedback desde la escena PORTAL.",
+    "pillars": [
+      "Producción en vivo",
+      "Demos y feedback",
+      "Artistas y escena"
+    ],
+    "voice": "Concreto y cercano, con créditos completos. Sin afirmar resultados que no se verificaron."
+  },
+  "source_verified": {
+    "title": "78 | w/ Matiem & Galeo",
+    "youtube_id": "xbIASzfQ-BU",
+    "date": "2026-11-24",
+    "url": "https://www.youtube.com/watch?v=xbIASzfQ-BU",
+    "channel": "Portal TV",
+    "description": "Escuchamos tu track que nos envies por nuestras redes sociales",
+    "participants": [
+      {
+        "name": "Matiem",
+        "profiles": [
+          "https://instagram.com/matiem.uy"
+        ]
+      },
+      {
+        "name": "Galeo",
+        "profiles": [
+          "https://instagram.com/galeo.uy",
+          "https://www.youtube.com/@Galeodj"
+        ]
+      }
+    ]
+  },
+  "posts": [
+    {
+      "purpose": "Entrada al episodio",
+      "audience": "Oyentes de electrónica",
+      "copy": "Ya está disponible PORTAL Stream 78 con Matiem y Galeo. Miralo completo en YouTube.",
+      "cta": "https://www.youtube.com/watch?v=xbIASzfQ-BU",
+      "ready": true
+    },
+    {
+      "purpose": "Aprendizaje concreto",
+      "audience": "Productores de electrónica",
+      "copy": null,
+      "cta": "https://www.youtube.com/watch?v=xbIASzfQ-BU",
+      "ready": false,
+      "reason": "No se escuchó ni transcribió el episodio en esta ejecución; no se formula un aprendizaje sin evidencia."
+    },
+    {
+      "purpose": "Invitación a demos",
+      "audience": "Productores de electrónica",
+      "copy": "¿Tenés un track para compartir? PORTAL Stream 78 abre un espacio para escuchar demos. Encontrá el episodio completo en YouTube.",
+      "cta": "https://www.youtube.com/watch?v=xbIASzfQ-BU",
+      "ready": true
+    }
+  ],
+  "learning": {
+    "copy": null,
+    "status": "not_created_no_verified_listening_or_transcript"
+  },
+  "clip": {
+    "source": "https://www.youtube.com/watch?v=xbIASzfQ-BU",
+    "source_local": null,
+    "subtitles_local": null,
+    "start_seconds": null,
+    "end_seconds": null,
+    "quote": null,
+    "rights_review": null,
+    "status": "not_created_no_verified_access_to_episode_content"
+  },
+  "measurement": {
+    "episode_views": 155,
+    "demo_enquiries": null,
+    "booking_enquiries": null,
+    "sponsor_enquiries": null,
+    "manual_minutes": null,
+    "rule": "La vista corresponde a la consulta del feed de YouTube del 24 de noviembre de 2026. Las consultas se registran por separado; no se infieren ventas desde vistas."
+  }
+}
